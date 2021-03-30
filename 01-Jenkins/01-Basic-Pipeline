@@ -1,0 +1,9 @@
+node {
+
+git branch: 'main', url: 'https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git'
+sh 'mvn clean -f 02-App-Code/petclinic-code/pom.xml'
+sh 'mvn compile -f 02-App-Code/petclinic-code/pom.xml'
+sh 'mvn test -f 02-App-Code/petclinic-code/pom.xml'
+sh 'mvn package -f 02-App-Code/petclinic-code/pom.xml'
+
+}
