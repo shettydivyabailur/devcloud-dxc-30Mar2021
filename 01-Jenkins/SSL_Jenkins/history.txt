@@ -1,0 +1,54 @@
+    1  wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+    2  vi /etc/apt/sources.list
+    3  apt-get update ; apt-get install default-jdk jenkins -y 
+    4  apt-get update ; apt-get install jenkins -y 
+    5  systemctl start jenkins 
+    6  systemctl status  jenkins 
+    7  tail -f /var/log/jenkins/jenkins.log 
+    8  ip addr 
+    9  cat /var/lib/jenkins/secrets/initialAdminPassword
+   10  ld
+   11  ls
+   12  mkdir openssl && cd openssl 
+   13  ls
+   14  openssl genrsa -out ca.key 2048
+   15  ls
+   16  openssl  req -x509 -new -nodes -key ca.key -subj "/CN=Jenkins/C=IN/L=NOIDA" -days 1000 -out ca.crt 
+   17  ls
+   18  openssl genrsa -out server.key 2048
+   19  ls
+   20  vim csr.conf
+   21  hostname -f 
+   22  vim csr.conf
+   23  ls
+   24  openssl  req -new -key server.key -out server.csr -config csr.conf 
+   25  ls
+   26  openssl x509 -req in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 10000 -extfile csr.conf 
+   27  openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 10000 -extfile csr.conf 
+   28  ls
+   29  openssl pkcs12 -export -out jenkins.p12 -passout 'pass:redhat@123' -inkey server.key -in server.crt -certfile ca.crt -name worker1.example.com
+   30  ls
+   31  keytool --help
+   32  keytool -importkeystore -srckeystore jenkins.p12 -srcstorepass 'redhat@123' -srcstoretype PKCS12 -srcalias worker1.exmaple.com -deststoretype JKS -destkeystore jenkins.jks -deststorepass 'redhat@123' -destalias worker1.exmaple.com
+   33  keytool -importkeystore -srckeystore jenkins.p12 -srcstorepass 'redhat@123' -srcstoretype PKCS12 -srcalias worker1.example.com -deststoretype JKS -destkeystore jenkins.jks -deststorepass 'redhat@123' -destalias worker1.example.com
+   34  keytool -importkeystore -srckeystore jenkins.jks -destkeystore jenkins.jks -deststoretype pkcs12
+   35  ls
+   36  mkdir -p /etc/jenkins
+   37  cp -rf jenkins.jks /etc/jenkins/jenkins_keystore.jks
+   38  chown -R jenkins: /etc/jenkins/
+   39  chmod 700 /etc/jenkins/
+   40  chmod 600 /etc/jenkins/jenkins_keystore.jks 
+   41  vim /etc/default/jenkins 
+   42  ls
+   43  cd 
+   44  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git
+   45  ls
+   46  cd devcloud-dxc-30Mar2021/
+   47  ls
+   48  cd 01-Jenkins/
+   49  ls
+   50  mkdir SSL_Jenkins
+   51  ls
+   52  cd SSL_Jenkins/
+   53  ls
+   54  history > history.txt
