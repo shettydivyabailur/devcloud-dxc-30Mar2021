@@ -1,0 +1,28 @@
+node('master') {
+
+stage('Git CheckOut') {
+  git branch: 'main', url: 'https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git'
+ }
+
+def Project_Path="02-App-Code/petclinic-code"
+
+dir(Project_Path) {
+
+stage('Clean') {
+  sh 'mvn clean'
+ }
+
+stage('Compile') {
+  sh 'mvn compile'
+ }
+
+stage('Testing') {
+  sh 'mvn test'
+ }
+
+stage('Package') {
+  sh 'mvn package'
+ }
+  
+}  
+}
