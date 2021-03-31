@@ -8,19 +8,19 @@ def Project_Path="02-App-Code/petclinic-code"
 
 dir(Project_Path) {
 
-stage('Clean') {
+stage('Maven Clean') {
   sh 'mvn clean'
  }
 
-stage('Compile') {
+stage('Maven Compile') {
   sh 'mvn compile'
  }
 
-stage('Testing') {
+stage('Maven Testing') {
   sh 'mvn test'
  }
 
-stage('Package') {
+stage('Maven Package') {
   sh 'mvn package'
  }
 
