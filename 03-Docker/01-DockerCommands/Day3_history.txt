@@ -391,3 +391,58 @@
   391  ls
   392  git add . ; git commit -m "DockerCompose" ; git push 
   393  history > 03-Docker/01-DockerCommands/Day3_history.txt 
+  394  git add . ; git commit -m "DockerCompose" ; git push 
+  395  history 
+  396  docker ps 
+  397  docker ps -a
+  398  docker rm  $(docker ps -qa)
+  399  ls
+  400  cd 02-App-Code/
+  401  ls
+  402  cd petclinic-code/
+  403  ls
+  404  cp -rf ../../03-Docker/04-DockerCompose/04-PetclinicApp/Dockerfile . 
+  405  cp -rf ../../03-Docker/04-DockerCompose/04-PetclinicApp/docker-compose.yaml . 
+  406  ls
+  407  vim Dockerfile 
+  408  cat Dockerfile 
+  409  ls
+  410  cd ..
+  411  ls
+  412  cd ..
+  413  ls
+  414  git add . ; git commit -m "DockerCompose" ; git push 
+  415  git checkout Jenkins
+  416  ls
+  417  cd JenkinPipeline/
+  418  ls
+  419  cp -rf 05-TestReports-Pipeline 06-PreProd-Pipeline
+  420  ls
+  421  vim 06-PreProd-Pipeline 
+  422  ls
+  423  cp -rf 06-PreProd-Pipeline Jenkinsfile 
+  424  cd ../
+  425  ls
+  426  git add . ; git commit -m "DockerCompose Jenkinfile" ; git push 
+  427  ls
+  428  docker ps -a 
+  429  cd 
+  430  ls
+  431  java -jar jenkins.war --httpPort=9090 & 
+  432  docker ps -a 
+  433  ls
+  434  cd devcloud-dxc-30Mar2021/
+  435  ls
+  436  vim JenkinPipeline/Jenkinsfile 
+  437  ls
+  438  git checkout main
+  439  ls
+  440  cd 02-App-Code/petclinic-code/
+  441  ls
+  442  cat docker-compose.yaml 
+  443  cat Dockerfile 
+  444  cd ..
+  445  ls
+  446  cd ..
+  447  ls
+  448  history > 03-Docker/01-DockerCommands/Day3_history.txt 
