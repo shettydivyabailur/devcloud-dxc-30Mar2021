@@ -1,0 +1,145 @@
+    1  apt-get update ; apt-get install vim -y 
+    2  apt-get install default-jdk -y 
+    3  java --version 
+    4  java -version 
+    5  ls
+    6  exit
+    7  vi /etc/default/jenkins 
+    8  ls
+    9  java -jar jenkins.war --httpPort=9090 & 
+   10  ls
+   11  ls -a 
+   12  systemctl status jenkins 
+   13  systemctl stop jenkins 
+   14  systemctl disable jenkins 
+   15  java -jar jenkins.war --httpPort=9090 & 
+   16  ps -ef | grep -i jenkins 
+   17  cat .jenkins/secrets/initialAdminPassword 
+   18  java -jar jenkins.war --httpPort=9090 & 
+   19  ps -ef | grep -i jenkins 
+   20  kill -9 2178
+   21  ps -ef | grep -i jenkins 
+   22  ls -a
+   23  ls -ltr .jenkins/workspace/
+   24  java -jar jenkins.war --httpPort=9090 & 
+   25  ps -ef | grep -i jenkins 
+   26  kill -9 8900
+   27  ls
+   28  cd .jenkins/
+   29  ls
+   30  cd 
+   31  ls
+   32  cd devcloud-dxc-30Mar2021
+   33  ls
+   34  git pull 
+   35  ls
+   36  cp  -rf ../devops-stackstrom-dxc-2021-Jan-04/04-Docker/00-Setup . 
+   37  ls
+   38  git pull 
+   39  cd 00-Setup/
+   40  ls
+   41  cd ..
+   42  ls
+   43  cd ..
+   44  ls
+   45  cd -
+   46  git config --list 
+   47  cd ..
+   48  ls
+   49  rm -rf devcloud-dxc-30Mar2021
+   50  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git
+   51  ls
+   52  cd devcloud-dxc-30Mar2021/
+   53  ls
+   54  mkdir 03-Docker
+   55  cd 03-Docker/
+   56  cp -rf ../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/00-Setup  . 
+   57  ls
+   58  cd ../
+   59  git add . ; git commit -m "Docker" ; git push 
+   60  free -m 
+   61  ls
+   62  cd 03-Docker/
+   63  ls
+   64  cd 00-Setup/
+   65  ls
+   66  ./install-docker.sh 
+   67  docker version 
+   68  docker run busybox echo "Welcome to the world of Docker."
+   69  docker run busybox echo "Welcome to the world of Docker - Test 2"
+   70  docker pull ubuntu 
+   71  docker images 
+   72  docker pull ubuntu:16.04
+   73  docker images 
+   74  docker pull amitvashist7/k8s-tiny-web
+   75  docker images 
+   76  docker pull amitvashist7/k8s-tiny-web:2
+   77  docker images 
+   78  docker pull amitvashist7/k8s-tiny-web:3
+   79  docker pull amitvashist7/k8s-tiny-web:4
+   80  docker images 
+   81  docker pull amitvashist7/apache-ex4
+   82  docker login 
+   83  docker pull amitvashist7/apache-ex4
+   84  history 
+   85  docker ps 
+   86  docker ps -a 
+   87  docker run -it ubuntu
+   88  cat /etc/*-release
+   89  docker ps 
+   90  docker ps -a
+   91  docker run -itd ubuntu
+   92  docker ps 
+   93  docker run -itd ubuntu
+   94  docker ps 
+   95  docker run -itd ubuntu:16.04
+   96  docker ps 
+   97  docker run -itd --name test-1 ubuntu:16.04
+   98  docker ps 
+   99  docker run -itd --name test-1 ubuntu:16.04
+  100  docker run -itd --name app-A ubuntu:16.04
+  101  docker run -itd --name app-B ubuntu:16.04
+  102  docker ps 
+  103  docker attach app-B
+  104  docker ps 
+  105  docker ps -a 
+  106  docker start app-B
+  107  docker ps 
+  108  docker attach app-B
+  109  docker ps 
+  110  docker attach app-B
+  111  docker ps 
+  112  docker exec app-B ls 
+  113  docker exec app-B cat amitvashist/hello.txt
+  114  docker exec app-B ps -ef 
+  115  docker exec app-B cat /etc/os-release 
+  116  ls
+  117  docker ps 
+  118  docker stop app-B
+  119  docker ps 
+  120  docker kill app-A
+  121  docker ps 
+  122  docker ps -q
+  123  docker kill $(docker ps -q)
+  124  docker ps 
+  125  docker ps -a
+  126  docker kill $(docker ps -qa)
+  127  docker rm $(docker ps -qa)
+  128  docker ps -a
+  129  ls
+  130  docker run -itd --name app-B ubuntu:16.04
+  131  docker ps 
+  132  docker inspect app-B
+  133  docker run -itd  ubuntu:16.04
+  134  docker ps 
+  135  docker inspect 5a027d5207b8
+  136  ls
+  137  cd ..
+  138  ls
+  139  cp -rf ../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/01-DockerCommands . 
+  140  ls
+  141  cd 01-DockerCommands/
+  142  ls
+  143  cat Basic_Commands.txt 
+  144  ls
+  145  history >  Day3_history.txt
