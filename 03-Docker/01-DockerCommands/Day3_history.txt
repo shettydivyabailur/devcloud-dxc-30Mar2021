@@ -309,3 +309,85 @@
   309  cd ..
   310  ls
   311  history > 03-Docker/01-DockerCommands/Day3_history.txt 
+  312  git add . ; git commit -m "DockerCompose" ; git push 
+  313  ls
+  314  cd 03-Docker/04-DockerCompose/
+  315  ls
+  316  mkdir 03-MyCustomApp
+  317  ls
+  318  cd 03-MyCustomApp/
+  319  ls
+  320  cp -rf ../../02-Dockerfile/apache/* . 
+  321  ls
+  322  vim index.html 
+  323  ls
+  324  vim docker-compose.yaml
+  325  ls
+  326  docker-compose up -d 
+  327  docker-compose up -d --build
+  328  docker-compose up -d -build
+  329  docker-compose up -d --build .
+  330  docker-compose up -d --build
+  331  vim docker-compose.yaml 
+  332  docker-compose up --build
+  333  docker ps 
+  334  docker-compose up -d --build
+  335  ls
+  336  vim docker-compose.yaml 
+  337  docker-compose up -d --build
+  338  vim docker-compose.yaml 
+  339  ls
+  340  cd ..
+  341  ls
+  342  cd 03-MyCustomApp/
+  343  ls
+  344  cp -rf ../../../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose/05-Petclinic-Deploy/docker-compose.yaml . 
+  345  ls
+  346  cat docker-compose.yaml 
+  347  docker-compose up -d --build
+  348  docker-compose --version 
+  349  sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  350  sudo chmod +x /usr/local/bin/docker-compose
+  351  docker-compose --version 
+  352  ls
+  353  docker-compose up -d --build
+  354  docker-compose rm
+  355  docker-compose rmi 
+  356  docker ps 
+  357  docker-compose ps 
+  358  docker-compose kill 
+  359  ls
+  360  vim docker-compose.yaml 
+  361  docker-compose up -d --build
+  362  docker-compose  ps 
+  363  ls
+  364  cd ..
+  365  ls
+  366  cp -rf 03-MyCustomApp 04-PetclinicApp
+  367  cd 04-PetclinicApp/
+  368  ls
+  369  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose/05-Petclinic-Deploy/* . 
+  370  ls
+  371  ls -ltr 
+  372  rm -rf index.html 
+  373  ls
+  374  cat docker-compose.yaml 
+  375  cat Dockerfile 
+  376  ls
+  377  cp -rf /root/.jenkins/workspace/Petclinic-Pipeline/02-App-Code/petclinic-code/target/petclinic.war . 
+  378  ls
+  379  ll
+  380  docker-compose up -d --build 
+  381  docker ps 
+  382  docker kill b5fb9d1b5311 a3dcf1e25325
+  383  docker ps 
+  384  docker-compose kill 
+  385  ls
+  386  > petclinic.war 
+  387  ls
+  388  cd ..
+  389  ls
+  390  cd ..
+  391  ls
+  392  git add . ; git commit -m "DockerCompose" ; git push 
+  393  history > 03-Docker/01-DockerCommands/Day3_history.txt 
