@@ -178,3 +178,71 @@
   178  cd 01-DockerCommands/
   179  ls
   180  history > Day3_history.txt 
+  181  cd ../../
+  182  git add . ; git commit -m "Docker" ; git push 
+  183  git config credential.helper store 
+  184  ls
+  185  cd 03-Docker/
+  186  ls
+  187  cd 02-Dockerfile/
+  188  ls
+  189  cd apache/
+  190  ls
+  191  vim Dockerfile 
+  192  ls
+  193  vim index.html
+  194  ls
+  195  cat Dockerfile 
+  196  docker build -t myapache:v2 . 
+  197  ls
+  198  docker images 
+  199  docker run -d --name test-apache-node-2 myapache:v2
+  200  curl 172.17.0.8 
+  201  ls
+  202  vim Dockerfile 
+  203  ls
+  204  docker build -t myapache:v3 . 
+  205  docker run -d --name test-apache-node-3 myapache:v3
+  206  docker ps 
+  207  vim Dockerfile 
+  208  ls
+  209  docker run -d --name test-apache-node-3 myapache:v4
+  210  docker build -t myapache:v4 . 
+  211  docker run -d --name test-apache-node-5 myapache:v4
+  212  docker ps 
+  213  docker inspect test-apache-node-5
+  214  telnet 172.17.0.10 3306 
+  215  telnet 172.17.0.10 8081
+  216  telnet 172.17.0.10 80
+  217  docker ps 
+  218  ls
+  219  vim Dockerfile 
+  220  ls
+  221  docker ps 
+  222  curl 172.17.0.10 
+  223  ip addr 
+  224  ls
+  225  docker ps 
+  226  netstat -tulnp 
+  227  docker run -d --name test-apache-node-6 -p 8081:80  myapache:v3
+  228  docker ps 
+  229  netstat -tulnp 
+  230  docker run -d --name test-apache-node-7 -P  myapache:v3
+  231  docker ps 
+  232  docker run -d --name test-apache-node-8 -P  myapache:v2
+  233  docker ps 
+  234  docker run -d --name test-apache-node-9 -P  myapache:v4
+  235  docker ps 
+  236  netstat -tulnp 
+  237  systemctl status docker
+  238  docker ps 
+  239  docker run -d --name test-apache-node-10 -p 8085:80  myapache:v2
+  240  docker ps 
+  241  ls
+  242  cd ..
+  243  ls
+  244  cd ..
+  245  ls
+  246  cd 01-DockerCommands/
+  247  ls
+  248  history > Day3_history.txt 
