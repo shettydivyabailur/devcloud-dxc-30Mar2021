@@ -143,3 +143,38 @@
   143  cat Basic_Commands.txt 
   144  ls
   145  history >  Day3_history.txt
+  146  cd ../../
+  147  ls
+  148  git add . ; git commit -m "Docker" ; git push 
+  149  ls
+  150  cd 03-Docker/
+  151  ls
+  152  mkdir 02-Dockerfile
+  153  cd 02-Dockerfile/
+  154  ls
+  155  mkdir apache
+  156  ls
+  157  cd apache/
+  158  ls
+  159  docker run -it ubuntu 
+  160  docker run -it ubuntu:16.04
+  161  ls
+  162  vim Dockerfile
+  163  ls
+  164  docker build -t myapache:v1 . 
+  165  ls
+  166  docker image 
+  167  docker images
+  168  docker run -d --name test-apache-node-1 myapache:v1
+  169  docker ps 
+  170  docker inspect test-apache-node-1
+  171  curl 172.17.0.7
+  172  cd ../../../
+  173  git config credentials.helper store 
+  174  git add . ; git commit -m "Docker" ; git push 
+  175  ls
+  176  cd 03-Docker/
+  177  ls
+  178  cd 01-DockerCommands/
+  179  ls
+  180  history > Day3_history.txt 
