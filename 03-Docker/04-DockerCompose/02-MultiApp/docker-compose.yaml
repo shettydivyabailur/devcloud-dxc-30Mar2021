@@ -1,0 +1,18 @@
+nginx: 
+  image: nginx:latest
+  ports:
+    - '8090:80'
+
+
+mywebserver:
+  image: myapache:v2
+  ports:
+    - '8091:80'
+
+mywebserver2:
+  image: myapache:v4
+  ports:
+    - '80'
+
+mywebserver3:
+  image: myapache:v3

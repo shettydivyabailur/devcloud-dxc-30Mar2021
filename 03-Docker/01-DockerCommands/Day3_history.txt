@@ -246,3 +246,66 @@
   246  cd 01-DockerCommands/
   247  ls
   248  history > Day3_history.txt 
+  249  git add . ; git commit -m "Docker" ; git push 
+  250  ls
+  251  cd ..
+  252  ls
+  253  cd ..
+  254  ls
+  255  git add . ; git commit -m "Docker" ; git push 
+  256  ls
+  257  docker images 
+  258  docker login 
+  259  docker push myapache:v4
+  260  docker images 
+  261  docker tag 76e808de9577 amitvashist7/myapache:v4
+  262  docker images 
+  263  docker push amitvashist7/myapache:v4 
+  264  docker tag 29c470626289 amitvashist7/myapache:v3
+  265  docker push amitvashist7/myapache:v3
+  266  sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  267  sudo chmod +x /usr/local/bin/docker-compose
+  268  docker-compose version
+  269  ls
+  270  cd 03-Docker/
+  271  ls
+  272  mkdir 04-DockerCompose/01-NginxApp -p 
+  273  cd 04-DockerCompose/01-NginxApp/
+  274  ls
+  275  vim docker-compose.yaml
+  276  ls
+  277  docker-compose up -d 
+  278  docker ps 
+  279  docker kill $(docker ps -qa) 
+  280  docker rm $(docker ps -qa) 
+  281  docker ps 
+  282  docker-compose up -d 
+  283  docker ps 
+  284  ls
+  285  cd ..
+  286  ls
+  287  cp -rf 01-NginxApp 02-MultiApp
+  288  cd 02-MultiApp/
+  289  ls
+  290  docker images 
+  291  ls
+  292  vim docker-compose.yaml 
+  293  docker-compose up -d 
+  294  docker ps 
+  295  docker-compose kill 
+  296  docker ps 
+  297  docker ps -a
+  298  docker-compose rm
+  299  docker-compose up -d 
+  300  docker-compose ps 
+  301  docker-compose --help
+  302  docker-compose kill  
+  303  docker-compose rm
+  304  ls
+  305  cd ..
+  306  ls
+  307  cd ../
+  308  ls
+  309  cd ..
+  310  ls
+  311  history > 03-Docker/01-DockerCommands/Day3_history.txt 
