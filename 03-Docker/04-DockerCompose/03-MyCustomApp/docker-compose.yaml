@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  mycustomapp:
+    build: . 
+    ports:
+      - '30098:80'
