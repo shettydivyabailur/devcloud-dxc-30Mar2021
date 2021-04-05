@@ -1,0 +1,54 @@
+    1  apt-get install ansible -y 
+    2  ansible --version 
+    3  ls
+    4  cat /etc/ansible/ansible.cfg 
+    5  ls
+    6  mkdir 04-Ansible
+    7  ls
+    8  cd 04-Ansible/
+    9  ls
+   10  mkdir 01-Inventory
+   11  ls
+   12  cd 01-Inventory/
+   13  ls
+   14  ssh vagrant@worker1
+   15  ls
+   16  vim inventory
+   17  ls
+   18  ansible all -i inventory -m ping -u vagrant -k 
+   19  cat /root/.ssh/known_hosts 
+   20  > /root/.ssh/known_hosts
+   21  ls
+   22  ansible all -i inventory -m ping -u vagrant -k 
+   23  ssh vagrant@worker2
+   24  cat /root/.ssh/known_hosts 
+   25  ansible all -i inventory -m ping -u vagrant -k 
+   26  grep -i HOST_KEY_CHECKING /etc/ansible/ansible.cfg 
+   27  grep -i HOST_KEY_CHECKING /etc/ansible/ansible.cfg  > ansible.cfg 
+   28  vim ansible.cfg 
+   29  ls
+   30  vim /etc/ansible/ansible.cfg 
+   31  ls
+   32  ansible all -i inventory -m ping -u vagrant -k 
+   33  vim inventory 
+   34  vim /etc/ansible/ansible.cfg 
+   35  vim ansible.cfg 
+   36  vim inventory 
+   37  ansible web -i inventory -m ping -u vagrant -k 
+   38  ansible ansible -i inventory -m ping -u vagrant -k 
+   39  ansible db -i inventory -m ping -u vagrant -k 
+   40  ansible all -i inventory -m ping -u vagrant -k 
+   41  vi inventory 
+   42  ansible all -i inventory -m ping -u vagrant -k 
+   43  ls
+   44  vim inventory 
+   45  ansible dc -i inventory -m ping -u vagrant -k 
+   46  vim inventory 
+   47  ls
+   48  ansible dc -i inventory -m ping
+   49  ansible web -i inventory -m ping
+   50  ansible ansible -i inventory -m ping
+   51  ls
+   52  cd ..
+   53  ls
+   54  history > Day1_History.txt
