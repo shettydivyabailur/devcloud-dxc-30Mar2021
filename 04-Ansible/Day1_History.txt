@@ -251,3 +251,29 @@
   251  cd ..
   252  ls
   253  history > Day1_History.txt 
+  254  cd ..
+  255  ls
+  256  git add . ; git commit -m "Ansible Playbook"; git push 
+  257  ls
+  258  cd 04-Ansible/
+  259  ls
+  260  cd 02-Playbooks/
+  261  ls
+  262  vim webserver.yaml 
+  263  ansible-playbook webserver.yaml 
+  264  vim webserver.yaml 
+  265  ansible-playbook webserver.yaml 
+  266  vim webserver.yaml 
+  267  ansible-playbook webserver.yaml 
+  268  ansible 172.31.0.100 -m setup 
+  269  ls
+  270  mkdir files 
+  271  ls
+  272  vim files/index.html
+  273  ls
+  274  vim webserver.yaml 
+  275  ansible-playbook webserver.yaml 
+  276  ls
+  277  cd ..
+  278  ls
+  279  history > Day1_History.txt 
