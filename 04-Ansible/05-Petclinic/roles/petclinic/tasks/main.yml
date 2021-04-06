@@ -1,0 +1,25 @@
+---
+# tasks file for petclinic
+- name: Tomcat Home Dir
+  file: path={{doc_tomcat}}/tomcat state=directory
+
+- name: Install Defualt JDK 1.8
+  apt: name=default-jdk state=present
+
+- name: Download Tomcat TarBall 
+  get_url: url={{download_url}} dest={{doc_tomcat}}/tomcat.tar.gz mode=0755
+
+- name: Extract Tomcat Tarball
+  command: "tar zxf {{doc_tomcat}}/tomcat.tar.gz -C {{doc_tomcat}}/tomcat --strip-components 1"
+
+- name: Tomcat Webapp Jenkins Dir 
+  file: path={{doc_tomcat_webapp}} state=directory
+
+- name: Deploy Jenkins Index Page
+  copy: src=files/jenkins.html dest={{doc_tomcat_webapp}}/index.html
+
+- name: Deploy Petclinic WAR 
+  copy: src=files/petclinic.war dest={{doc_tomcat}}/tomcat/webapps/
+
+- name: Start Tomcat App Server
+  shell: "nohup sh /opt/SP/apps/tomcat/bin/catalina.sh start"

@@ -1,0 +1,7 @@
+---
+- hosts: web
+  name: "Petclinic App Deployment"
+  become: yes
+  roles:
+  - webserver
+  - petclinic

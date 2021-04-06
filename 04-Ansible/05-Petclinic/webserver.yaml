@@ -1,0 +1,6 @@
+---
+- hosts: "172.31.0.102"
+  name: "My Webserver Server Deployment"
+  become: yes
+  roles:
+  - webserver
