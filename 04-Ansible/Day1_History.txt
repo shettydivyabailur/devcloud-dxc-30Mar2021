@@ -277,3 +277,198 @@
   277  cd ..
   278  ls
   279  history > Day1_History.txt 
+  280  cd ..
+  281  ls
+  282  git add . ; git commit -m "Ansible Playbook"; git push 
+  283  ls
+  284  cd 04-Ansible/
+  285  ls
+  286  cp -rf 02-Playbooks 03-Templates
+  287  ls
+  288  cd 03-Templates/
+  289  ls
+  290  mkdir templates
+  291  ls
+  292  vim templates/info.j2
+  293  ls
+  294  vim webserver.yaml 
+  295  ansible-playbook webserver.yaml 
+  296  vim webserver.yaml 
+  297  ansible-playbook webserver.yaml 
+  298  ls
+  299  cd ..
+  300  ls
+  301  cd ..
+  302  ls
+  303  git add . ; git commit -m "Ansible Templates"; git push 
+  304  history 
+  305  ls
+  306  cd 04-Ansible/
+  307  ls
+  308  cd 03-Templates/
+  309  ls
+  310  cd ..
+  311  ls
+  312  cp -rf 03-Templates 04-Tomcat 
+  313  ls
+  314  cd 04-Tomcat/
+  315  ls
+  316  vim webserver.yaml 
+  317  echo  "Hey Jenkins Web Page on Tomcat" > files/jenkins.html
+  318  ls
+  319  vim webserver.yaml 
+  320  ls
+  321  mv webserver.yaml tomcat.yaml
+  322  ls
+  323  ansible-playbook tomcat.yaml --check
+  324  ls -ltr files/
+  325  vim tomcat.yaml 
+  326  ansible-playbook tomcat.yaml --check
+  327  ansible-playbook tomcat.yaml 
+  328  ls
+  329  cd ..
+  330  ls
+  331  git add . ; git commit -m "Ansible Tomcat Deployment"; git push 
+  332  history 
+  333  ls
+  334  cd 04-Ansible/
+  335  ls
+  336  cd 04-Tomcat/
+  337  ls
+  338  cd ..
+  339  ls
+  340  cp -rf 04-Tomcat 05-Petclinic
+  341  ls
+  342  cd 05-Petclinic/
+  343  ls
+  344  mkdir roles
+  345  cd roles/
+  346  ansible-galaxy init petclinic 
+  347  ansible-galaxy init webserver
+  348  ls
+  349  ls -ltr petclinic/
+  350  cd ..
+  351  ls
+  352  cp -rf files/index.html roles/webserver/files/
+  353  cp -rf files/jenkins.html roles/petclinic/files/
+  354  cp -rf templates/* roles/webserver/templates/
+  355  ls
+  356  rm -rf files templates/
+  357  ls
+  358  vim roles/webserver/tasks/main.yml 
+  359  ls
+  360  vim roles/webserver/vars/main.yml 
+  361  ls
+  362  vim roles/petclinic/tasks/main.yml 
+  363  ls
+  364  vim roles/petclinic/tasks/main.yml 
+  365  ls
+  366  vim roles/petclinic/vars/main.yml 
+  367  ls
+  368  cp -rf tomcat.yaml webserver.yaml
+  369  ls
+  370  vim webserver.yaml 
+  371  ls
+  372  ansible-playbook webserver.yaml 
+  373  ls
+  374  cp -rf webserver.yaml 
+  375  cp -rf webserver.yaml  petclinic.yaml
+  376  ls
+  377  vim webserver.yaml 
+  378  ansible-playbook webserver.yaml 
+  379  ls
+  380  rm -rf tomcat.yaml 
+  381  ls
+  382  vim petclinic.yaml 
+  383  ls
+  384  ansible-playbook petclinic.yaml 
+  385  ls
+  386  vim roles/petclinic/tasks/main.yml 
+  387  ls
+  388  echo "Hey Petlicinc" > roles/petclinic/files/petlinic.war
+  389  ls -ltr roles/petclinic/files/petlinic.war
+  390  ansible-playbook petclinic.yaml 
+  391  ls
+  392  cd roles/petclinic/files/
+  393  ls
+  394  mv petlinic.war petclinic.war
+  395  cd ../../
+  396  ls
+  397  cd ..
+  398  ls
+  399  ansible-playbook petclinic.yaml 
+  400  vim roles/petclinic/tasks/main.yml 
+  401  ls
+  402  cd ..
+  403  ls
+  404  cd ..
+  405  ls
+  406  git add . ; git commit -m "Ansible Petclinic Deployment"; git push 
+  407  ls
+  408  docker ps 
+  409  docker ps -a 
+  410  docker start 78a9f62a0eeb
+  411  ls
+  412  docker ps 
+  413  ls
+  414  git status 
+  415  git branch 
+  416  git checkout Jenkins 
+  417  ls
+  418  cd 04-Ansible/
+  419  ls
+  420  cd 05-Petclinic/
+  421  ls
+  422  cd 
+  423  cd - 
+  424  cd ../../
+  425  lls
+  426  ls
+  427  rm -rf 04-Ansible/
+  428  ls
+  429  mkdir prepod production 
+  430  ls
+  431  cp -rf JenkinPipeline/Jenkinsfile prepod/
+  432  ls
+  433  cp -rf JenkinPipeline/Jenkinsfile production/
+  434  ls
+  435  vim prepod/Jenkinsfile 
+  436  ls
+  437  docker ps 
+  438  ls
+  439  vim production/Jenkinsfile 
+  440  ls
+  441  git add . ; git commit -m "Pipeline - Prod"; git push 
+  442  ls
+  443  vim production/Jenkinsfile 
+  444  git add . ; git commit -m "Pipeline - Prod"; git push 
+  445  cd /root/.jenkins/workspace/Petclinic-Pipeline-as-a-code-production
+  446  ls
+  447  cd 04-Ansible/05-Petclinic/roles/petclinic/files/
+  448  ls
+  449  ll
+  450  ls
+  451  cd 
+  452  ls
+  453  cd devcloud-dxc-30Mar2021
+  454  ls
+  455  git status 
+  456  git checkout main 
+  457* 
+  458  echo "Test 10" > CHANGEME.txt 
+  459  git add . ; git commit -m "Test-10"; git push 
+  460  ls
+  461  git checkout Jenkins
+  462  ls
+  463  mv prepod preprod
+  464  git add . ; git commit -m "Test-10"; git push 
+  465  git checkout main
+  466  echo "Test 11" > CHANGEME.txt 
+  467  git add . ; git commit -m "Test-11"; git push 
+  468  echo "Test 12" > CHANGEME.txt 
+  469  git add . ; git commit -m "Test-12"; git push 
+  470  ll
+  471  ls
+  472  cd 04-Ansible/
+  473  ls
+  474  history > Day1_History.txt 
