@@ -25,7 +25,7 @@ stage('Build Management') {
  }
 
 stage('Getting Ready for Ansible') {   
-  sh "echo \'<h2> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h2>\` > 04-Ansible/05-Petclinic/roles/petclinic/files/jenkins.html"
+  sh "echo \'<h2> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h2>\' > 04-Ansible/05-Petclinic/roles/petclinic/files/jenkins.html"
  }
 
 
