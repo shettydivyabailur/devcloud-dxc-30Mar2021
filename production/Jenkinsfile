@@ -1,0 +1,47 @@
+node('master') {
+// Get Artifcatory Server Instance Details 
+   def server = Artifactory.server "01"
+   def buildInfo = Artifactory.newBuildInfo()
+
+// Petclinic Project Variable
+   def Project_Path="02-App-Code/petclinic-code"
+
+notify('Started')
+
+stage('Git CheckOut') {
+  git branch: 'main', url: 'https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git'
+ }
+
+stage('Build Management') { 
+    def downloadSpec = """{
+     "files" : [
+        { 
+          "pattern": "petclinic-snapshot/*.war",
+          "target": "04-Ansible/05-Petclinic/roles/petclinic/files/"
+        }
+      ]
+   }"""
+   server.download spec: downloadSpec
+ }
+
+stage('Getting Ready for Ansible') {   
+  sh "echo \'<h2> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h2>\` > 04-Ansible/05-Petclinic/roles/petclinic/files/jenkins.html"
+ }
+
+
+stage('Deployment - Production') {  
+  sh 'cd 04-Ansible/05-Petclinic; ansible-playbook petclinic.yaml' 
+ }
+
+notify('Completed')
+}
+
+
+def notify(status){
+    emailext(
+      to: "amitvashist7@outlook.com",
+      subject: "${status}: JOB '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
+      body: """<p>${status}: JOB '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+               <p> Check the Console Output at <a href='${env.BUILD_URL}'>${env.JOB_NAME}[${env.BUILD_NUMBER}]</a></p>""",      
+    )
+}
