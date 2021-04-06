@@ -211,3 +211,43 @@
   211  cd ..
   212  ls
   213  history > Day1_History.txt 
+  214  cd ..
+  215  ls
+  216  git add . ; git commit -m "Ansible Group "; git push 
+  217  git config credential.helper store
+  218  ls
+  219  cd 04-Ansible/
+  220  ls
+  221  cp -rf 01-Inventory 02-Playbooks
+  222  cd 02-Playbooks/
+  223  ls
+  224  vim inventory 
+  225  ls
+  226  vim webserver.yaml
+  227  ls
+  228  ansible-playbook webserver.yaml 
+  229  ansible 172.31.0.102 -m service -a "name=apache2 state=stopped" -s 
+  230  ansible-playbook webserver.yaml 
+  231  ansible 172.31.0.101 -m service -a "name=apache2 state=stopped" -s 
+  232  ansible-playbook webserver.yaml 
+  233  vim webserver.yaml 
+  234  ansible-playbook webserver.yaml 
+  235  vim webserver.yaml 
+  236  ansible-playbook webserver.yaml 
+  237  vim webserver.yaml 
+  238  ansible-playbook webserver.yaml 
+  239  ls
+  240  vim webserver.yaml 
+  241  ansible-playbook webserver.yaml 
+  242  ansible 172.31.0.101 -m service -a "name=apache2 state=stopped" -s 
+  243  ansible-playbook webserver.yaml 
+  244  ansible -v 
+  245  ansible --version 
+  246  ansible-playbook webserver.yaml 
+  247  ansible-playbook webserver.yaml -vvv
+  248  vim webserver.yaml 
+  249  ansible-playbook webserver.yaml 
+  250  ls
+  251  cd ..
+  252  ls
+  253  history > Day1_History.txt 
