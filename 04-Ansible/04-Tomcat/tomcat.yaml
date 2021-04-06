@@ -1,0 +1,62 @@
+---
+
+- hosts: web
+  name: "My Tomcat Server Deployment"
+  become: yes
+  vars:
+    doc_root: "/var/www/html"
+    doc_tomcat: "/opt/SP/apps"
+    doc_tomcat_webapp: "/opt/SP/apps/tomcat/webapps/jenkins"
+    download_url: "https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.64/bin/apache-tomcat-8.5.64.tar.gz"
+  tasks:
+  - name: Install Apache Packages 
+    apt: name=apache2 state=present
+    when: ansible_os_family == "Debian"
+
+  - name: Start Apache Service 
+    service: name=apache2 state=started
+    when: ansible_os_family == "Debian"
+
+  - name: Install HTTPD Packages 
+    yum: name=httpd state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Start HTTPD Service 
+    service: name=httpd state=started
+    when: ansible_os_family == "Redhat"
+
+  - name: Deploy Custom Web Page
+    copy: src=files/index.html dest={{doc_root}}
+
+  - name: Deploy Custom Info Web Page
+    template: src=templates/info.j2 dest={{doc_root}}/info.html
+
+  - name: Tomcat Home Dir
+    file: path={{doc_tomcat}}/tomcat state=directory
+
+  - name: Install Defualt JDK 1.8
+    apt: name=default-jdk state=present
+
+  - name: Download Tomcat TarBall 
+    get_url: url={{download_url}} dest={{doc_tomcat}}/tomcat.tar.gz mode=0755
+
+  - name: Extract Tomcat Tarball
+    command: "tar zxf {{doc_tomcat}}/tomcat.tar.gz -C {{doc_tomcat}}/tomcat --strip-components 1"
+
+  - name: Tomcat Webapp Jenkins Dir 
+    file: path={{doc_tomcat_webapp}} state=directory
+
+  - name: Deploy Jenkins Index Page
+    copy: src=files/jenkins.html dest={{doc_tomcat_webapp}}/index.html
+
+  - name: Start Tomcat App Server
+    shell: "nohup sh /opt/SP/apps/tomcat/bin/catalina.sh start"
+
+- hosts: "172.31.0.100"
+  become: yes 
+  tasks:
+  - name: Install NTP Packages 
+    apt: name=ntp state=present
+
+  - name: Install Java Packages
+    apt: name=default-jdk state=present
