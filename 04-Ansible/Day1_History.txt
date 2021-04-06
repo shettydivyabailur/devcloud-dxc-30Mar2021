@@ -1,54 +1,186 @@
-    1  apt-get install ansible -y 
-    2  ansible --version 
-    3  ls
-    4  cat /etc/ansible/ansible.cfg 
+    1  apt-get update ; apt-get install vim -y 
+    2  apt-get install default-jdk -y 
+    3  java --version 
+    4  java -version 
     5  ls
-    6  mkdir 04-Ansible
-    7  ls
-    8  cd 04-Ansible/
-    9  ls
-   10  mkdir 01-Inventory
-   11  ls
-   12  cd 01-Inventory/
-   13  ls
-   14  ssh vagrant@worker1
-   15  ls
-   16  vim inventory
-   17  ls
-   18  ansible all -i inventory -m ping -u vagrant -k 
-   19  cat /root/.ssh/known_hosts 
-   20  > /root/.ssh/known_hosts
-   21  ls
-   22  ansible all -i inventory -m ping -u vagrant -k 
-   23  ssh vagrant@worker2
-   24  cat /root/.ssh/known_hosts 
-   25  ansible all -i inventory -m ping -u vagrant -k 
-   26  grep -i HOST_KEY_CHECKING /etc/ansible/ansible.cfg 
-   27  grep -i HOST_KEY_CHECKING /etc/ansible/ansible.cfg  > ansible.cfg 
-   28  vim ansible.cfg 
-   29  ls
-   30  vim /etc/ansible/ansible.cfg 
-   31  ls
-   32  ansible all -i inventory -m ping -u vagrant -k 
-   33  vim inventory 
-   34  vim /etc/ansible/ansible.cfg 
-   35  vim ansible.cfg 
-   36  vim inventory 
-   37  ansible web -i inventory -m ping -u vagrant -k 
-   38  ansible ansible -i inventory -m ping -u vagrant -k 
-   39  ansible db -i inventory -m ping -u vagrant -k 
-   40  ansible all -i inventory -m ping -u vagrant -k 
-   41  vi inventory 
-   42  ansible all -i inventory -m ping -u vagrant -k 
-   43  ls
-   44  vim inventory 
-   45  ansible dc -i inventory -m ping -u vagrant -k 
-   46  vim inventory 
+    6  exit
+    7  ks
+    8  ls
+    9  java -jar jenkins.war --httpPort=9090 & 
+   10  docker ps 
+   11  docker images 
+   12  df -h 
+   13  docker os
+   14  docker ps
+   15  docker ps -a 
+   16  docker ps 
+   17  ;s
+   18  ls
+   19  cd devcloud-dxc-30Mar2021/
+   20  ls
+   21  cd 03-Docker/
+   22  ls
+   23  cd 04-DockerCompose/
+   24  ls
+   25  cp -rf ../../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose/03-Jfrog-Artifact . 
+   26  ls
+   27  mv 03-Jfrog-Artifact 05-Jfrog-Artifact
+   28  ls
+   29  free -m 
+   30  ls
+   31  cd 05-Jfrog-Artifact/
+   32  ls
+   33  docker-compose up -d 
+   34  docker ps 
+   35  docker logs 96b1dea75731
+   36  vim docker-compose.yaml 
+   37  chmod 777 -R /data/artifactory
+   38  docker-compose up -d 
+   39  docker ps 
+   40  docker logs 96b1dea75731
+   41  docker-compose stop 
+   42  docker-compose up -d 
+   43  docker ps 
+   44  ls
+   45  cd 
+   46  cd 0 
    47  ls
-   48  ansible dc -i inventory -m ping
-   49  ansible web -i inventory -m ping
-   50  ansible ansible -i inventory -m ping
+   48  cd devcloud-dxc-30Mar2021/
+   49  ls
+   50  git checkout Jenkins
    51  ls
-   52  cd ..
+   52  rm -rf 03-Docker/
    53  ls
-   54  history > Day1_History.txt
+   54  cd JenkinPipeline/
+   55  ls
+   56  vim 06-PreProd-Pipeline 
+   57  cp -rf 06-PreProd-Pipeline Jenkinsfile 
+   58  cd ..
+   59  ls
+   60  git add . ; git commit -m "Jenkinsfile - Sudo"; git push 
+   61  ls
+   62  git checkout main 
+   63  ls
+   64  docker ps 
+   65  ls
+   66  cd 03-Docker/
+   67  ls
+   68  cd 04-DockerCompose/
+   69  ls
+   70  cp -rf ../../../devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose/03-Jfrog-Artifact 05-Jfrog-Artifact
+   71  ls
+   72  cd 05-Jfrog-Artifact/
+   73  ls
+   74  docker ps 
+   75  docker kill 96b1dea75731 ; docker rm 96b1dea75731
+   76  ls
+   77  vim docker-compose.yaml 
+   78  ls
+   79  docker-compose up -d 
+   80  docker ps 
+   81  docker-compose stop 
+   82  docker-compose rm
+   83  ls -ltr /data/artifactory/
+   84  rm -rf /data/artifactory/
+   85  ls
+   86  docker-compose up -d 
+   87  docker
+   88  docker ps 
+   89  docker logs 36c78f0c570c
+   90  cat docker-compose.yaml 
+   91  ls -d /data/artifactory
+   92  ls -ld /data/artifactory
+   93  chmod 775 -R /data/artifactory
+   94  ls -ld /data/artifactory
+   95  docker ps 
+   96  docker-compose stop 
+   97  docker-compose up -d 
+   98  docker ps 
+   99  docker logs 36c78f0c570c
+  100  chmod 777 -R /data/artifactory
+  101  docker logs 36c78f0c570c
+  102  docker-compose stop 
+  103  docker-compose up -d 
+  104  docker logs 36c78f0c570c
+  105  docker ps 
+  106  ls
+  107  cd ../../../
+  108  ls
+  109  git add . ; git commit -m "05-Jfrog-Artifact"; git push 
+  110  ls
+  111  netstat -tulnp 
+  112  cd 03-Docker/04-DockerCompose/05-Jfrog-Artifact/
+  113  ls
+  114  docker ps 
+  115  cat docker-compose.yaml 
+  116  ls
+  117  docker ps 
+  118  docker kill ee8784793284
+  119  ls
+  120  docker ps 
+  121  docker-compose kill 
+  122  docker-compose rm 
+  123  ls
+  124  rm -rf /data/artifactory/* 
+  125  ls
+  126  free -m 
+  127  exit
+  128  ls
+  129  cd devcloud-dxc-30Mar2021/
+  130  ls
+  131  cd 04-Ansible/
+  132  ls
+  133  cd 01-Inventory/
+  134  ls
+  135  cat inventory 
+  136  ls
+  137  vim inventory 
+  138  ls
+  139  cat ansible.cfg 
+  140  ls
+  141  ansible dc -i inventory -m ping 
+  142  vim ansible.cfg 
+  143  ansible dc -m ping 
+  144  ansible-doc  -l 
+  145  ansible-doc  apt
+  146  ls
+  147  df -h 
+  148  ansible-doc  command
+  149  ansible dc -m command -a 'df -h'
+  150  ansible dc -m command -a 'ip addr'
+  151  ansible dc -m command -a 'uname -a'
+  152  ansible dc -m command -a 'arch'
+  153  cat /etc/*-release 
+  154  ansible dc -m command -a 'cat /etc/*-release'
+  155  cat /etc/*-release 
+  156  ansible dc -m shell -a 'cat /etc/*-release'
+  157  ansible dc -m command -a 'cat /etc/os-release'
+  158  ansible dc -m shell -a 'cat /etc/*-release'
+  159  ls
+  160  ansible 172.31.0.101 -m apt -a "name=ntp state=present"
+  161  ansible 172.31.0.101 -m apt -a "name=ntp state=present" -s 
+  162  ansible 172.31.0.101 -m apt -a "name=ntp state=absent" -s 
+  163  ls
+  164  cd ..
+  165  ls
+  166  cd ..
+  167  ls
+  168  cd 04-Ansible/
+  169  ls
+  170  cd ..
+  171  ls
+  172  git pull 
+  173  cd ..
+  174  ls
+  175  mv devcloud-dxc-30Mar2021 devcloud-dxc-30Mar2021.old
+  176  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git 
+  177  ls
+  178  cd devcloud-dxc-30Mar2021
+  179  ls
+  180  cd 04-Ansible/
+  181  ls
+  182  cp -rf ../../devcloud-dxc-30Mar2021.old/04-Ansible/01-Inventory/* 01-Inventory/
+  183  ls
+  184  cat 01-Inventory/ansible.cfg 
+  185  ls
+  186  history > Day1_History.txt 
