@@ -184,3 +184,30 @@
   184  cat 01-Inventory/ansible.cfg 
   185  ls
   186  history > Day1_History.txt 
+  187  cd ..
+  188  ls
+  189  git add . ; git commit -m "05-Jfrog-Artifact"; git push 
+  190  ls
+  191  cd 04-Ansible/
+  192  ls
+  193  cd 01-Inventory/
+  194  ls
+  195  vim inventory 
+  196  ls
+  197  ansible dc -m ping 
+  198  ls
+  199  cat inventory 
+  200  ls
+  201  ansible 'web:db' -m ping 
+  202  ansible 'web:&db' -m ping 
+  203  ansible 'web:&prod' -m ping 
+  204  ansible 'web:&uat' -m ping 
+  205  ansible 'db:&uat' -m ping 
+  206  ansible 'db:&prod' -m ping 
+  207  cat inventory 
+  208  ansible 'web:&prod' -m ping 
+  209  ansible 'web:&prod:!python' -m ping 
+  210  ls
+  211  cd ..
+  212  ls
+  213  history > Day1_History.txt 
