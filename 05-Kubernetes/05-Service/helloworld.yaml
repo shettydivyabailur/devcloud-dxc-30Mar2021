@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testworld-deployment
+  labels:
+    app: testworld
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: testworld
+  template:
+    metadata:
+      labels:
+        app: testworld
+    spec:
+      containers:
+      - name: k8s-demo
+        image: amitvashist7/k8s-tiny-web
+        ports:
+        - name: node-port
+          containerPort: 80
