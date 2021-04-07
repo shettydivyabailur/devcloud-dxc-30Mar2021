@@ -1,0 +1,107 @@
+    1  ls
+    2  cat kubeinit.log 
+    3  mkdir -p $HOME/.kube
+    4  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    5  kubectl get nodes 
+    6  ls
+    7  kubectl token create --print-join-command 
+    8  kubectl token create --print-join-command
+    9  kubeadm token create --print-join-command
+   10  kubectl get nodes 
+   11  ls
+   12  vim kubeinit.log 
+   13  ls
+   14  cat kubeinit.log 
+   15  kubectl get nodes 
+   16  exit
+   17  ls
+   18  cat kubeinit.log 
+   19  kubectl get nodes 
+   20  kubectl get pods 
+   21  kubectl run hello-k8s --image=nginx --port=80 
+   22  kubectl get pods 
+   23  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git
+   24  ls
+   25  git clone https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
+   26  ls
+   27  cd devcloud-dxc-30Mar2021/
+   28  ls
+   29  mkdir 05-Kubernetes
+   30  ls
+   31  cd 05-Kubernetes/
+   32  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/00-Setup . 
+   33  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/01-First-App . 
+   34  ls
+   35  cd 00-Setup/
+   36  ls
+   37  cat install-k8s-worker.sh 
+   38  ls
+   39  cat README.md 
+   40  ls
+   41  cd ..
+   42  ls
+   43  cd ..
+   44  ls
+   45  git config credential.helper store
+   46  git add . ; git commit -m "05-Kubernetes"; git push 
+   47  ls
+   48  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/02-ETCD . 
+   49  ls
+   50  mv 02-ETCD 05-Kubernetes/
+   51  ls
+   52  cat 05-Kubernetes/02-ETCD/README.md 
+   53  ls
+   54  git add . ; git commit -m "02-ETCD"; git push 
+   55  ls
+   56  git add . ; git commit -m "02-ETCD"; git push 
+   57  ls
+   58  cd 05-Kubernetes/
+   59  ls
+   60  cd 03-Api-Server/
+   61  ls
+   62  vim README.md 
+   63  ls
+   64  cd ../../
+   65  git add . ; git commit -m "02-ETCD"; git push 
+   66  kubectl run amitvashist --image=nginx --port=80 
+   67  kubectl get pods 
+   68  kubectl get pods -o wide 
+   69  ls
+   70  cd 05-Kubernetes/
+   71  ls
+   72  cp -rf ../../devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/05-Deployment .
+   73  ls
+   74  mv 05-Deployment 04-Deployment
+   75  ls
+   76  cd 04-Deployment/
+   77  ls
+   78  vim deployment.yaml 
+   79  ls
+   80  kubectl get deploy 
+   81  kubectl get deployment 
+   82  kubectl get pods 
+   83  kubectl create -f deployment.yaml 
+   84  kubectl get deployment 
+   85  kubectl get rs 
+   86  kubectl get pods
+   87  kubectl delete pod --all
+   88  kubectl get pods
+   89  kubectl delete pod --all
+   90  kubectl get deployment 
+   91  kubectl scale --replicas=5 deploy helloworld-deployment
+   92  kubectl get deployment 
+   93  kubectl scale --replicas=10 deploy helloworld-deployment
+   94  kubectl scale --replicas=1 deploy helloworld-deployment
+   95  ls
+   96  kubectl create -f deployment.yaml 
+   97  kubectl apply  -f deployment.yaml 
+   98  ls
+   99  vim deployment.yaml 
+  100  ls
+  101  kubectl apply  -f deployment.yaml 
+  102  kubectl get deploy 
+  103  kubectl edit deploy helloworld-deployment
+  104  ls
+  105  rm -rf History* 
+  106  ls
+  107  history > History.txt
