@@ -105,3 +105,59 @@
   105  rm -rf History* 
   106  ls
   107  history > History.txt
+  108  cd ../../
+  109  ls
+  110  git add . ; git commit -m "04-Deploymen"; git push 
+  111  ls
+  112  cd 05-Kubernetes/
+  113  ls
+  114  cd 00-Setup/
+  115  LS
+  116  ls
+  117  vim install-k8s-worker.sh 
+  118  vim install-k8s-master-node.sh 
+  119  ls
+  120  cd ../
+  121  ls
+  122  cd 04-Deployment/
+  123  ls
+  124  kubectl get pods 
+  125  kubectl describe deploy helloworld-deployment
+  126  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2
+  127  kubectl describe deploy helloworld-deployment
+  128  kubectl rollout status deploy helloworld-deployment
+  129  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3
+  130  kubectl rollout status deploy helloworld-deployment
+  131  kubectl describe deploy helloworld-deployment
+  132  kubectl rollout history deploy helloworld-deployment
+  133  kubectl rollout history deploy helloworld-deployment --revision=1
+  134  kubectl rollout history deploy helloworld-deployment --revision=2
+  135  kubectl rollout history deploy helloworld-deployment --revision=3
+  136  kubectl describe deploy helloworld-deployment
+  137  ls
+  138  kubectl rollout undo deploy helloworld-deployment 
+  139  kubectl describe deploy helloworld-deployment
+  140  kubectl rollout history deploy helloworld-deployment 
+  141  kubectl rollout undo deploy helloworld-deployment 
+  142  kubectl rollout history deploy helloworld-deployment 
+  143  kubectl rollout undo deploy helloworld-deployment 
+  144  kubectl rollout history deploy helloworld-deployment 
+  145  kubectl rollout undo deploy helloworld-deployment  --to-revision=1
+  146  kubectl rollout history deploy helloworld-deployment 
+  147  kubectl rollout undo deploy helloworld-deployment  --revision=5
+  148  kubectl rollout deploy helloworld-deployment  --revision=5
+  149  kubectl rollout status deploy helloworld-deployment  --revision=5
+  150  kubectl rollout history deploy helloworld-deployment --revision=2
+  151  kubectl rollout history deploy helloworld-deployment --revision=5
+  152  kubectl rollout history deploy helloworld-deployment --revision=6
+  153  kubectl rollout history deploy helloworld-deployment --revision=7
+  154  kubectl rollout history deploy helloworld-deployment 
+  155  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:4 --record 
+  156  kubectl rollout history deploy helloworld-deployment 
+  157  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3 --record 
+  158  kubectl rollout history deploy helloworld-deployment 
+  159  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2 --record 
+  160  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web --record 
+  161  kubectl rollout history deploy helloworld-deployment 
+  162  ls
+  163  history > History.txt 
