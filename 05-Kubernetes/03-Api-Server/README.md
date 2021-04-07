@@ -1,3 +1,4 @@
+```
     1  kubectl get pods -n kube-system 
     2  kubectl cluster-info
     3  kubectl cluster-info > README.md
@@ -16,6 +17,5 @@
    16  curl http://172.31.0.100:8001/api
    17  curl http://172.31.0.100:8001/apis
    18  curl http://172.31.0.100:8001/api/v1
-   19  curl http://172.31.0.100:8001/api/v1/pods 
-   20  ls
-   21  history >> README.md 
+   19  curl http://172.31.0.100:8001/api/v1/pods
+``` 
