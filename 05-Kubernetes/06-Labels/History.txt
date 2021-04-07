@@ -1,0 +1,46 @@
+  275  cd 06-Labels/
+  276  ls
+  277  kubectl get pods 
+  278  cat helloworld-v2.yaml 
+  279  ls
+  280  kubectl get nodes 
+  281  kubectl get nodes --show-labels
+  282  ls
+  283  kubectl create -f deployment.yaml 
+  284  kubectl get pods 
+  285  kubectl get pods -o wide 
+  286  kubectl create -f helloworld-v2.yaml 
+  287  kubectl get pods -o wide 
+  288  kubectl describe pod helloworld-v2-deployment-5bd449644d-fh62b
+  289  kubectl get nodes --show-labels
+  290  kubectl get pods -o wide 
+  291  kubectl label nodes kworker1 hardware=virtual
+  292  kubectl get pods -o wide 
+  293  kubectl delete -f deployment.yaml 
+  294  kubectl get pods -o wide 
+  295  kubectl scale --replicas=5 deploy helloworld-v2-deployment
+  296  kubectl get pods -o wide 
+  297  kubectl scale --replicas=6 deploy helloworld-v2-deployment
+  298  kubectl get pods -o wide 
+  299  kubectl label nodes kworker2 hardware=virtual
+  300  kubectl get pods -o wide 
+  301  kubectl scale --replicas=10 deploy helloworld-v2-deployment
+  302  kubectl get pods -o wide 
+  303  kubectl scale --replicas=12 deploy helloworld-v2-deployment
+  304  kubectl get pods -o wide 
+  305  kubectl scale --replicas=16 deploy helloworld-v2-deployment
+  306  kubectl get pods -o wide 
+  307  kubectl scale --replicas=1 deploy helloworld-v2-deployment
+  308  kubectl get pods -o wide 
+  309  kubectl get nodes --show-labels
+  310  ls
+  311  vim helloworld-v3.yaml 
+  312  kubectl apply -f helloworld-v3.yaml 
+  313  kubectl get pods 
+  314  kubectl describe pod helloworld-v3-deployment-64bf65c86f-8v4fq
+  315  kubectl label nodes kworker2 env=prod
+  316  kubectl get pods 
+  317  kubectl get pods -o wide 
+  318  ls
+  319  cat History.txt 
+  320  history > History.txt 
