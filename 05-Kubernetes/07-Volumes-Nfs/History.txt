@@ -1,61 +1,34 @@
-  337  cd 07-Volumes-Nfs/
-  338  ls
-  339  cat README.md 
-  340  cd ..
-  341  ls
-  342  cd ..
-  343  ls
-  344  git add . ; git commit -m "07-Volumes-Nfs"; git push 
-  345  apt-get install nfs-kernel-server -y
-  346  mkdir /exports
-  347  chown nobody:nogroup /exports
-  348  vi /etc/exports 
-  349  chmod -R 775 /exports
-  350  systemctl restart nfs-kernel-server
-  351  systemctl status  nfs-kernel-server
-  352  systemctl enabled  nfs-kernel-server
-  353  systemctl enable  nfs-kernel-server
-  354  showmount -e localhost
-  355  ls
-  356  cd /exports/
-  357  ls
-  358  cat hostname.txt 
-  359  cd 
-  360  ls
-  361  cd devcloud-dxc-30Mar2021/05-Kubernetes/07-Volumes-Nfs/
-  362  ls
-  363  kubectl get pv 
-  364  vim pv-nfs.yaml 
-  365  ls
-  366  kubectl create -f pv-nfs.yaml 
-  367  kubectl get pv 
-  368  ls
-  369  vim pvc-nfs.yaml 
-  370  kubectl apply -f pvc-nfs.yaml 
-  371  kubectl get pv,pvc
-  372  ls
-  373  vim nfs-busybox-rc.yaml 
-  374  ls
-  375  kubectl apply -f nfs-busybox-rc.yaml
-  376  kubectl get pods 
-  377  kubectl desribe pod nfs-busybox-2-cxv9b
-  378  kubectl describe pod nfs-busybox-2-cxv9b
-  379  ls
-  380  cd 
-  381  ls
-  382  cd /exports/
-  383  ls
-  384  tail -f index.html 
-  385  ls
-  386  cd ..
-  387  ls
-  388  cd - 
-  389  cd 
-  390  ls 
-  391  cd devcloud-dxc-30Mar2021/
-  392  ll
-  393  cd 05-Kubernetes/
-  394  ls 
-  395  cd 07-Volumes-Nfs/
-  396  ls 
-  397  history > History.txt 
+   67  ls
+   68  cd 05-Kubernetes/
+   69  ls
+   70  cd 07-Volumes-Nfs/
+   71  ls
+   72  kubectl get pods 
+   73  ls -ltr /exports/index.html 
+   74  > /exports/index.html 
+   75  ls -ltr /exports/index.html 
+   76  ls
+   77  vim web-rc-pvc.yaml 
+   78  ls
+   79  kubectl apply -f web-rc-pvc.yaml 
+   80  ls
+   81  kubectl get pods 
+   82  vim nfs-web-svc.yaml 
+   83  ls
+   84  kubectl apply -f nfs-web-svc.yaml 
+   85  kubectl get svc 
+   86  kubectl edit svc nfs-web
+   87  kubectl get svc 
+   88  kubectl get pods -o wide 
+   89  > /exports/index.html 
+   90  kubectl get pods 
+   91  kubectl delete pod --all
+   92  kubectl get pods 
+   93  kubectl get rc 
+   94  kubectl scale --replicas=5 rc nfs-busybox-2
+   95  kubectl get rc 
+   96  kubectl get pods 
+   97  ls
+   98  cd ..
+   99  ls
+  100  kubectl delete -f 07-Volumes-Nfs/
