@@ -1,42 +1,57 @@
-    1  ls
-    2  cd 15-ConfigMap/
-    3  ls
-    4  rm -rf History.txt 
-    5  ls
-    6  cat reverseproxy.conf 
-    7  kubectl get configmap
-    8  rm -rf ConfigMap.yaml 
-    9  ls
-   10  kubectl create configmap nginx-config --help
-   11  ls
-   12  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run 
-   13  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run > ConfigMap.yaml
-   14  ls
-   15  cat ConfigMap.yaml 
+    1  kubectl get configmap
+    2  kubectl create configmap nginx-config --help
+    3  kubectl create configmap test-nginx-config --from-file=reverseproxy.conf --dry-run
+    4  kubectl get configmap
+    5  kubectl create configmap test-nginx-config --from-file=reverseproxy.conf 
+    6  kubectl get configmap
+    7  kubectl describe configmap test-nginx-config
+    8  ls
+    9  kubectl create configmap nginx-config --from-file=reverseproxy.conf --dry-run
+   10  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run
+   11  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run > ConfigMap.yaml
+   12  ls
+   13  kubectl run hello-k8s --image=nginx --port=80 --dry-run 
+   14  kubectl run hello-k8s --image=nginx --port=80 --dry-run -o yaml
+   15  kubectl run hello-k8s --image=nginx --port=80 --dry-run -o yaml > nginx-pod.yaml
    16  ls
-   17  kubectl create -f ConfigMap.yaml 
-   18  kubectl get configmap
-   19  kubectl describe configmap nginx-config
+   17  cat nginx-pod.yaml 
+   18  kubectl apply -f nginx-pod.yaml
+   19  kubectl get pods 
    20  ls
-   21  vim nginx-pod.yml 
-   22  ls
-   23  kubectl create -f nginx-pod.yml 
-   24  kubectl create -f nginx-service.yaml 
-   25  kubectl get pods 
-   26  kubectl get svc 
-   27  kubectl get pods 
-   28  kubectl describe pod helloworld-nginx
+   21  kubectl get pods 
+   22  kubectl expose pod hello-k8s --type=NodePort 
+   23  kubectl get pods 
+   24  kubectl get pods,svc  -o wide 
+   25  ls
+   26  mv nginx-pod.yaml hello-k8s-pod.yaml
+   27  ls
+   28  kubectl create -f nginx-pod.yml 
    29  kubectl get pods 
    30  kubectl describe pod helloworld-nginx
-   31  kubectl get pods 
-   32  kubectl get pods -o wide 
-   33  kubectl  get svc 
-   34  kubectl exec -it helloworld-nginx -c nginx -- bash 
-   35  kubectl exec -it helloworld-nginx -c nginx -- ls /etc/nginx/conf.d
-   36  kubectl exec -it helloworld-nginx -c nginx -- ls /etc/nginx/conf.d/reverseproxy.conf
-   37  kubectl exec -it helloworld-nginx -c nginx -- cat  /etc/nginx/conf.d/reverseproxy.conf
-   38  kubectl edit configmap
-   39  kubectl describe configmap
-   40  kubectl exec -it helloworld-nginx -c nginx -- cat  /etc/nginx/conf.d/reverseproxy.conf
-   41  ls
-   42  history > History.txt
+   31  kubectl get configmap
+   32  ls
+   33  kubectl apply -f ConfigMap.yaml 
+   34  kubectl get configmap
+   35  kubectl get pods 
+   36  kubectl describe pod helloworld-nginx
+   37  ls
+   38  kubectl get pods 
+   39  kubectl delete -f nginx-pod.yml 
+   40  kubectl create  -f nginx-pod.yml 
+   41  kubectl get pods 
+   42  kubectl describe pod helloworld-nginx
+   43  kubectl get pods 
+   44  ls
+   45  cat nginx-service.yaml 
+   46  kubectl create -f nginx-service.yaml 
+   47  ls
+   48  kubectl get svc 
+   49  kubectl get pods 
+   50  kubectl get configmap
+   51  kubectl edit configmap nginx-config
+   52  ls
+   53  kubectl describe configmap nginx-config
+   54  kubectl get pods 
+   55  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+   56  ls
+   57  history > History.txt
