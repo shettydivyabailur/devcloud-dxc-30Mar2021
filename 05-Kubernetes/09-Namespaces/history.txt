@@ -1,0 +1,47 @@
+    1  ls
+    2  kubectl get ns 
+    3  kubectl get pods -n default
+    4  kubectl get pods -n kube-node-lease
+    5  kubectl get pods -n kube-system
+    6  kubectl get pods --all-namespaces
+    7  kubectl run hello-k8s --image=nginx --port=80
+    8  kubectl get pods -n default
+    9  kubectl get pods --all-namespaces
+   10  kubectl create ns myspace --dry-run 
+   11  kubectl create ns myspace --dry-run -o yaml 
+   12  kubectl create ns myspace --dry-run -o yaml  > myspace-ns.yaml
+   13  ls
+   14  kubectl create -f myspace-ns.yaml 
+   15  kubectl get ns 
+   16  kubectl run hello-k8s --image=nginx --port=80 
+   17  kubectl run hello-k8s --image=nginx --port=80 -n myspace 
+   18  kubectl get pods --all-namespaces
+   19  kubectl run hello-k8s --image=nginx --port=80 -n myspace -o yaml --dry-run
+   20  ls
+   21  kubectl create deployment hello-k8s-deploy --replicas=3 --image=nginx --port=80 -n myspace -o yaml --dry-run
+   22  kubectl create deployment hello-k8s-deploy --replica=3 --image=nginx --port=80 -n myspace -o yaml --dry-run
+   23  kubectl create deployment hello-k8s-deploy  --image=nginx --port=80 -n myspace -o yaml --dry-run
+   24  kubectl create deploy hello-k8s-deploy --help
+   25  kubectl create deploy hello-k8s-deploy --image=nginx --dry-run 
+   26  kubectl create deploy hello-k8s-deploy --image=nginx --dry-run -o yaml
+   27  kubectl create deploy hello-k8s-deploy --image=nginx --dry-run -o yaml > hello-k8s-deploy.yaml
+   28  ls
+   29  vim hello-k8s-deploy.yaml 
+   30  ls
+   31  kubectl apply -f hello-k8s-deploy.yaml 
+   32  kubectl get deplot 
+   33  kubectl get deploy 
+   34  kubectl delete -f hello-k8s-deploy.yaml 
+   35  kubectl create deploy hello-k8s-deploy --image=nginx -n myspace --dry-run -o yaml > hello-k8s-deploy.yaml
+   36  vim hello-k8s-deploy.yaml 
+   37  ls
+   38  kubectl apply  -f hello-k8s-deploy.yaml 
+   39  kubectl get deploy 
+   40  kubectl get deploy -n myspace 
+   41  kubectl get pods --all-namespaces
+   42  ls
+   43  cd ..
+   44  ls
+   45  cd 09-Namespaces/
+   46  ls
+   47  history > history.txt
