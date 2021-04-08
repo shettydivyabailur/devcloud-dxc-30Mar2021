@@ -1,0 +1,81 @@
+  207  cd 11-Affinity/
+  208  ls
+  209  cat helloworld.yaml 
+  210  ls
+  211  vim helloworld.yaml 
+  212  ls
+  213  kubectl apply -f helloworld.yaml 
+  214  kubectl get pods 
+  215  kubectl delete -f ../10-Taint-and-Toleration/helloworld-ds-with-toleration.yaml 
+  216  kubectl get pods 
+  217  kubectl get pods -o wide 
+  218  ls
+  219  vim helloworld.yaml 
+  220  ls
+  221  kubectl delete -f helloworld.yaml 
+  222  kubectl get pods 
+  223  kubectl get nodes --show-labels 
+  224  kubectl label nodes kworker2 env-
+  225  kubectl label nodes kworker2 hardware-
+  226  kubectl label nodes kworker1 hardware-
+  227  kubectl get nodes --show-labels 
+  228  ls
+  229  kubectl apply -f helloworld.yaml 
+  230  kubectl get pod 
+  231  kubectl descibe pod helloworld-deployment-6677bb57b6-7xdzb
+  232  kubectl describe pod helloworld-deployment-6677bb57b6-7xdzb
+  233  ls
+  234  kubectl label nodes kworker1 env=prod
+  235  kubectl get pod 
+  236  kubectl get pod -o wide 
+  237  kubectl label nodes kworker2 env=dev
+  238  ls
+  239  vim helloworld-dev-prod.yaml 
+  240  ls
+  241  kubectl apply -f helloworld-dev-prod.yaml
+  242  kubectl get pods -o wide 
+  243  ls
+  244  vim helloworld-multi-affinity.yaml 
+  245  ls
+  246  kubectl apply -f helloworld-multi-affinity.yaml 
+  247  kubectl get pods -o wide 
+  248  ls
+  249  cd ..
+  250  ls
+  251  kubectl delete -f 11-Affinity/
+  252  ls
+  253  kubectl get pods 
+  254  vim 11-Affinity/helloworld-multi-affinity.yaml 
+  255  ls
+  256  kubectl apply -f 11-Affinity/helloworld-multi-affinity.yaml 
+  257  kubectl get pods 
+  258  kubectl get pods -o wide 
+  259  kubectl delete -f 11-Affinity/helloworld-multi-affinity.yaml 
+  260  kubectl get nodes --show-labels 
+  261  kubectl  label nodes kworker1 env=dev
+  262  kubectl  label nodes kworker1 env=dev --overwrite
+  263  kubectl get nodes --show-labels 
+  264  kubectl apply  -f 11-Affinity/helloworld-multi-affinity.yaml 
+  265  kubectl get pods -o wide 
+  266  kubectl delete   -f 11-Affinity/helloworld-multi-affinity.yaml 
+  267  ls
+  268  cat 11-Affinity/helloworld-multi-affinity.yaml 
+  269  kubectl  label nodes kworker1 team=engineering-project1
+  270  kubectl get nodes --show-labels 
+  271  kubectl create  -f 11-Affinity/helloworld-multi-affinity.yaml 
+  272  kubectl get pods -o wide 
+  273  kubectl scale --replicas=10 deploy helloworld-deployment-milt
+  274  kubectl scale --replicas=10 deploy helloworld-deployment-milti
+  275  kubectl get pods -o wide 
+  276  kubectl scale --replicas=20 deploy helloworld-deployment-milti
+  277  kubectl get pods -o wide 
+  278  kubectl get pods -o wide | grep -i kworker1
+  279  kubectl get pods -o wide | grep -i kworker1| wc -l 
+  280  kubectl get pods -o wide | grep -i kworker2| wc -l 
+  281  kubectl delete -f 11-Affinity/helloworld-multi-affinity.yaml 
+  282  ls
+  283  vim 11-Affinity/helloworld-multi-affinity.yaml 
+  284  ls
+  285  cd 11-Affinity/
+  286  ls
+  287  history > History.txt 
