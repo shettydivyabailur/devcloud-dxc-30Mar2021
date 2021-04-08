@@ -1,0 +1,462 @@
+    1  ls
+    2  kubectl get ns 
+    3  kubectl get pods -n default
+    4  kubectl get pods -n kube-node-lease
+    5  kubectl get pods -n kube-system
+    6  kubectl get pods --all-namespaces
+    7  kubectl run hello-k8s --image=nginx --port=80
+    8  kubectl get pods -n default
+    9  kubectl get pods --all-namespaces
+   10  kubectl create ns myspace --dry-run 
+   11  kubectl create ns myspace --dry-run -o yaml 
+   12  kubectl create ns myspace --dry-run -o yaml  > myspace-ns.yaml
+   13  ls
+   14  kubectl create -f myspace-ns.yaml 
+   15  kubectl get ns 
+   16  kubectl run hello-k8s --image=nginx --port=80 
+   17  kubectl run hello-k8s --image=nginx --port=80 -n myspace 
+   18  kubectl get pods --all-namespaces
+   19  kubectl run hello-k8s --image=nginx --port=80 -n myspace -o yaml --dry-run
+   20  ls
+   21  kubectl create deployment hello-k8s-deploy --replicas=3 --image=nginx --port=80 -n myspace -o yaml --dry-run
+   22  kubectl create deployment hello-k8s-deploy --replica=3 --image=nginx --port=80 -n myspace -o yaml --dry-run
+   23  kubectl create deployment hello-k8s-deploy  --image=nginx --port=80 -n myspace -o yaml --dry-run
+   24  kubectl create deploy hello-k8s-deploy --help
+   25  kubectl create deploy hello-k8s-deploy --image=nginx --dry-run 
+   26  kubectl create deploy hello-k8s-deploy --image=nginx --dry-run -o yaml
+   27  kubectl create deploy hello-k8s-deploy --image=nginx --dry-run -o yaml > hello-k8s-deploy.yaml
+   28  ls
+   29  vim hello-k8s-deploy.yaml 
+   30  ls
+   31  kubectl apply -f hello-k8s-deploy.yaml 
+   32  kubectl get deplot 
+   33  kubectl get deploy 
+   34  kubectl delete -f hello-k8s-deploy.yaml 
+   35  kubectl create deploy hello-k8s-deploy --image=nginx -n myspace --dry-run -o yaml > hello-k8s-deploy.yaml
+   36  vim hello-k8s-deploy.yaml 
+   37  ls
+   38  kubectl apply  -f hello-k8s-deploy.yaml 
+   39  kubectl get deploy 
+   40  kubectl get deploy -n myspace 
+   41  kubectl get pods --all-namespaces
+   42  ls
+   43  cd ..
+   44  ls
+   45  cd 09-Namespaces/
+   46  ls
+   47  history > history.txt
+   48  cd ..
+   49  ls
+   50  git add . ; git commit -m "09-Namespaces"; git push 
+   51  kubectl delete -f 05-Kubernetes/09-Namespaces/
+   52  ls
+   53  cd 05-Kubernetes/
+   54  ls
+   55  kubectl get nodes 
+   56  kubectl desribe nodes kmaster | grep -i taint 
+   57  kubectl describe nodes kmaster | grep -i taint 
+   58  kubectl describe nodes kworker1 | grep -i taint 
+   59  kubectl describe nodes kworker2 | grep -i taint 
+   60  ls
+   61  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/11-Taint-and-Toleration . 
+   62  ls
+   63  mv 11-Taint-and-Toleration 10-Taint-and-Toleration
+   64  ls
+   65  cd 10-Taint-and-Toleration/
+   66  ls
+   67  vim helloworld.yaml 
+   68  ls
+   69  kubectl apply -f helloworld.yaml 
+   70  kubectl get pods 
+   71  kubectl describe pod helloworld-deployment-78cf6987f9-8nsrt
+   72  kubectl get pods 
+   73  kubectl delete pod --all
+   74  kubectl get pods 
+   75  kubectl delete -f helloworld.yaml 
+   76  vim helloworld.yaml 
+   77  ls
+   78  kubectl apply -f helloworld.yaml 
+   79  kubectl get pods 
+   80  kubectl get secrets
+   81  ls
+   82  kubectl delete  -f helloworld.yaml 
+   83  vim helloworld.yaml 
+   84  kubectl apply   -f helloworld.yaml 
+   85  kubectl get secrets
+   86  kubectl get pods 
+   87  ls
+   88  vim PullSecrets-ReadMe.md
+   89  ls
+   90  vim PullSecrets-ReadMe.md 
+   91  ls
+   92  kubectl get pods 
+   93  kubectl get pods -o wide 
+   94  kubectl delete -f helloworld.yaml 
+   95  ls
+   96  kubectl get nodes 
+   97  kubectl describe node kworker2 | grep -i taint 
+   98  kubectl taint nodes kworker2 app=myapp:NoSchedule
+   99  kubectl get nodes 
+  100  kubectl describe node kworker2 | grep -i taint 
+  101  kubectl apply  -f helloworld.yaml 
+  102  kubectl get pods -o wide 
+  103  ls
+  104  vim helloworld-toleration.yaml 
+  105  ls
+  106  rm 1
+  107  cat helloworld.yaml 
+  108  vim helloworld-toleration.yaml 
+  109  ls
+  110  kubectl apply -f helloworld-toleration.yaml 
+  111  kubectl get pods -o wide 
+  112  ls
+  113  vim helloworld-toleration-2.yaml 
+  114  cat  helloworld-toleration-2.yaml 
+  115  kubectl taint nodes kworker2 example=myapp2:NoSchedule
+  116  kubectl describe node kworker2 | grep -i taint 
+  117  kubectl describe node kworker2 | grep -A10 taint 
+  118  kubectl describe node kworker2 | grep -A10 Taint 
+  119  ls
+  120  kubectl get pods 
+  121  kubectl delete -f helloworld-toleration.yaml 
+  122  kubectl apply  -f helloworld-toleration.yaml 
+  123  kubectl get pods 
+  124  kubectl get pods -o wide 
+  125  ls
+  126  vim helloworld-toleration-2.yaml
+  127  ls
+  128  kubectl apply -f helloworld-toleration-2.yaml
+  129  kubectl get pods -o wide 
+  130  ls
+  131  cat helloworld-toleration-3.yaml 
+  132  ls
+  133  kubectl get pods -o wide 
+  134  kubectl taint nodes kworker1 example2=example2:NoExecute
+  135  kubectl describe node kworker1 | grep -A10 Taint 
+  136  kubectl get pods -o wide 
+  137  ls
+  138  vim helloworld-toleration-3.yaml 
+  139  ls
+  140  kubectl apply -f helloworld-toleration-3.yaml 
+  141  kubectl get pods -o wide 
+  142  kubectl describe node kworker1 | grep -A10 Taint 
+  143  kubectl taint nodes kworker1 example2-
+  144  kubectl get pods -o wide 
+  145  kubectl describe node kworker2 | grep -A10 Taint 
+  146  kubectl taint nodes kworker1 app- example-
+  147  kubectl taint nodes kworker2 app- example-
+  148  kubectl describe node kworker2 | grep -A10 Taint 
+  149  kubectl get pods -o wide 
+  150  ls
+  151  vim helloworld-ds.yaml 
+  152* 
+  153  kubectl apply -f helloworld-ds.yaml 
+  154  kubectl get pods -o wide 
+  155  ls
+  156  cd ..
+  157  ls
+  158  kubectl delete -f 10-Taint-and-Toleration/
+  159  ls
+  160  kubectl get pods 
+  161  ls
+  162  cd 10-Taint-and-Toleration/
+  163  ls
+  164  cp -rf helloworld-ds.yaml helloworld-ds-with-toleration.yaml 
+  165  vim helloworld-ds.yaml 
+  166  ls
+  167  kubectl apply helloworld-ds.yaml 
+  168  kubectl apply -f helloworld-ds.yaml 
+  169  kubectl get pods 
+  170  kubectl get pods -o wide 
+  171  kubectl get daemonset
+  172  kubectl describe daemonset
+  173  ls
+  174  kubectl delete -f helloworld-ds.yaml 
+  175  kubectl apply helloworld-ds-with-toleration.yaml 
+  176  kubectl apply -f  helloworld-ds-with-toleration.yaml 
+  177  kubectl get daemonset
+  178  kubectl get pods -o wide 
+  179  kubectl get daemonset -o wide -n kube-system 
+  180  kubectl get pods -o wide -n kube-system 
+  181  ls
+  182  history > History.txt 
+  183  ls
+  184  cd ..
+  185  ls
+  186  cd ..
+  187  ls
+  188  git add . ; git commit -m "10-Taint-and-Toleration"; git push 
+  189  ls
+  190  cd 05-Kubernetes/
+  191  ls
+  192  cd 10-Taint-and-Toleration/
+  193  ls
+  194  cat PullSecrets-ReadMe.md 
+  195  ls
+  196  cat helloworld.yaml 
+  197  vim PullSecrets-ReadMe.md 
+  198  ls
+  199  cd ../../
+  200  ls
+  201  git add . ; git commit -m "10-Taint-and-Toleration"; git push 
+  202  ls
+  203  cd 05-Kubernetes/
+  204  ls
+  205  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/12-Affinity 11-Affinity
+  206  ls
+  207  cd 11-Affinity/
+  208  ls
+  209  cat helloworld.yaml 
+  210  ls
+  211  vim helloworld.yaml 
+  212  ls
+  213  kubectl apply -f helloworld.yaml 
+  214  kubectl get pods 
+  215  kubectl delete -f ../10-Taint-and-Toleration/helloworld-ds-with-toleration.yaml 
+  216  kubectl get pods 
+  217  kubectl get pods -o wide 
+  218  ls
+  219  vim helloworld.yaml 
+  220  ls
+  221  kubectl delete -f helloworld.yaml 
+  222  kubectl get pods 
+  223  kubectl get nodes --show-labels 
+  224  kubectl label nodes kworker2 env-
+  225  kubectl label nodes kworker2 hardware-
+  226  kubectl label nodes kworker1 hardware-
+  227  kubectl get nodes --show-labels 
+  228  ls
+  229  kubectl apply -f helloworld.yaml 
+  230  kubectl get pod 
+  231  kubectl descibe pod helloworld-deployment-6677bb57b6-7xdzb
+  232  kubectl describe pod helloworld-deployment-6677bb57b6-7xdzb
+  233  ls
+  234  kubectl label nodes kworker1 env=prod
+  235  kubectl get pod 
+  236  kubectl get pod -o wide 
+  237  kubectl label nodes kworker2 env=dev
+  238  ls
+  239  vim helloworld-dev-prod.yaml 
+  240  ls
+  241  kubectl apply -f helloworld-dev-prod.yaml
+  242  kubectl get pods -o wide 
+  243  ls
+  244  vim helloworld-multi-affinity.yaml 
+  245  ls
+  246  kubectl apply -f helloworld-multi-affinity.yaml 
+  247  kubectl get pods -o wide 
+  248  ls
+  249  cd ..
+  250  ls
+  251  kubectl delete -f 11-Affinity/
+  252  ls
+  253  kubectl get pods 
+  254  vim 11-Affinity/helloworld-multi-affinity.yaml 
+  255  ls
+  256  kubectl apply -f 11-Affinity/helloworld-multi-affinity.yaml 
+  257  kubectl get pods 
+  258  kubectl get pods -o wide 
+  259  kubectl delete -f 11-Affinity/helloworld-multi-affinity.yaml 
+  260  kubectl get nodes --show-labels 
+  261  kubectl  label nodes kworker1 env=dev
+  262  kubectl  label nodes kworker1 env=dev --overwrite
+  263  kubectl get nodes --show-labels 
+  264  kubectl apply  -f 11-Affinity/helloworld-multi-affinity.yaml 
+  265  kubectl get pods -o wide 
+  266  kubectl delete   -f 11-Affinity/helloworld-multi-affinity.yaml 
+  267  ls
+  268  cat 11-Affinity/helloworld-multi-affinity.yaml 
+  269  kubectl  label nodes kworker1 team=engineering-project1
+  270  kubectl get nodes --show-labels 
+  271  kubectl create  -f 11-Affinity/helloworld-multi-affinity.yaml 
+  272  kubectl get pods -o wide 
+  273  kubectl scale --replicas=10 deploy helloworld-deployment-milt
+  274  kubectl scale --replicas=10 deploy helloworld-deployment-milti
+  275  kubectl get pods -o wide 
+  276  kubectl scale --replicas=20 deploy helloworld-deployment-milti
+  277  kubectl get pods -o wide 
+  278  kubectl get pods -o wide | grep -i kworker1
+  279  kubectl get pods -o wide | grep -i kworker1| wc -l 
+  280  kubectl get pods -o wide | grep -i kworker2| wc -l 
+  281  kubectl delete -f 11-Affinity/helloworld-multi-affinity.yaml 
+  282  ls
+  283  vim 11-Affinity/helloworld-multi-affinity.yaml 
+  284  ls
+  285  cd 11-Affinity/
+  286  ls
+  287  history > History.txt 
+  288  history 
+  289  vim History.txt 
+  290  ls
+  291  cd ../../
+  292  ls
+  293  git add . ; git commit -m "11-Affinity"; git push 
+  294  ls
+  295  cd 05-Kubernetes/
+  296  ls
+  297  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/13-Pod-Affinity-and-Anti-Affinity 12-Pod-Affinity-and-Anti-Affinity
+  298  ls
+  299  cd 12-Pod-Affinity-and-Anti-Affinity/
+  300  ls
+  301  cd ..
+  302  ls
+  303  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/14-Taint-and-toleration-with-affinity . 
+  304  ls
+  305  mv 14-Taint-and-toleration-with-affinity 13-Taint-and-toleration-with-affinity
+  306  ls
+  307  cd 12-Pod-Affinity-and-Anti-Affinity/
+  308  ls
+  309  vim helloworld.yaml 
+  310  ls
+  311  kubectl apply -f helloworld.yaml 
+  312  kubectl get pods -o wide 
+  313  kubectl delete -f helloworld.yaml 
+  314  ls
+  315  vim helloworld-2.yaml 
+  316  ls
+  317  kubectl apply -f helloworld.yaml 
+  318  kubectl get pods -o wide 
+  319  ls
+  320  vim helloworld-2.yaml 
+  321  ls
+  322  kubectl apply -f helloworld-2.yaml 
+  323  kubectl get pods 
+  324  kubectl get pods -o wide 
+  325  kubectl get nodes
+  326  kubectl describe nodes kmaster  | grep -i taint 
+  327  vim helloworld-2.yaml 
+  328  ls
+  329  cd ..
+  330  ls
+  331  kubectl delete -f 12-Pod-Affinity-and-Anti-Affinity/
+  332  ls
+  333  cd 13-Taint-and-toleration-with-affinity/
+  334  ls
+  335  vim helloworld-affinity
+  336  vim helloworld-affinity.yaml 
+  337  ls
+  338  kubectl apply -f helloworld-affinity.yaml 
+  339  kubectl get pods 
+  340  kubectl get pods -o wide 
+  341  ls
+  342  vim helloworld-affinity-with-tolerations.yaml 
+  343  kubectl apply -f helloworld-affinity-with-tolerations.yaml 
+  344  kubectl get pods 
+  345  kubectl get pods -o wide 
+  346  kubectl delete -f . 
+  347  ls
+  348  cat helloworld-affinity-with-tolerations.yaml 
+  349  kubectl get nodes 
+  350  cat helloworld-affinity-with-tolerations.yaml 
+  351  kubectl get nodes --show-labels 
+  352  kubectl taint nodes kworker1 app=myapp:NoSchedule
+  353  ls
+  354  kubectl apply -f helloworld-affinity.yaml 
+  355  kubectl get pods 
+  356  kubectl apply -f helloworld-affinity-with-tolerations.yaml 
+  357  kubectl get pod
+  358  kubectl get pod -o wide 
+  359  kubectl run hello-k8s --image=nginx --port=80
+  360  kubectl get pod -o wide 
+  361  ls
+  362  history > History.txt
+  363  ls
+  364  cd ../../
+  365  ls
+  366  git add . ; git commit -m "13-Taint-and-toleration-with-affinity"; git push 
+  367  ls
+  368  cd 05-Kubernetes/
+  369  ls
+  370  cp -rf /root/devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/17-Helm 14-Helm
+  371  ls
+  372  cd 14-Helm/
+  373  ls
+  374  cat README.md 
+  375  ls
+  376  cd ../../
+  377  git add . ; git commit -m "13-Taint-and-toleration-with-affinity"; git push 
+  378  ls
+  379  cd 05-Kubernetes/14-Helm/
+  380  ls
+  381  cat helm-rbac.yaml 
+  382  kubectl get sa 
+  383  kubectl get pods 
+  384  kubectl describe pod helloworld-deployment-at-85b9587856-znk67
+  385  kubectl get sa 
+  386  kubectl get sa  -n kube-system 
+  387  kubectl get roles 
+  388  kubectl get rolesbinding 
+  389  kubectl get rolebindings 
+  390  kubectl get clusterroles 
+  391  kubectl describe clusterroles cluster-admin
+  392  kubectl describe clusterroles view
+  393  kubectl describe clusterrolebindings
+  394  kubectl get clusterrolebindings
+  395  kubectl describe clusterrolebindings cluster-admin
+  396  ls
+  397  kubectl create -f helm-rbac.yaml 
+  398  kubectl get sa  -n kube-system  | grep -i tiller 
+  399  kubectl describe sa tiller -n kube-system  
+  400  kubectl describe sa default  
+  401  kubectl describe clusterrolebindings tiller 
+  402  ls
+  403  helm 
+  404  helm repo add azure-marketplace https://marketplace.azurecr.io/helm/v1/repo
+  405  helm search repo nginx
+  406  helm install mytest-nginx azure-marketplace/nginx
+  407  kubectl get pods 
+  408  kubectl get deploy 
+  409  kubectl get svc 
+  410  kubectl delete svc hello-k8s
+  411  ls
+  412  kubectl get pods 
+  413  kubectl get deploy 
+  414* kubectl delete deploy helloworld-deployment helloworld-deployment-atA
+  415  ls
+  416  kubectl get pod 
+  417  kubectl delete pod hello-k8s
+  418  kubectl get pod 
+  419  kubectl get deploy,pod,svc 
+  420  kubectl get pods -o wide 
+  421  helm list 
+  422  helm install mytest-nginx-2 azure-marketplace/nginx
+  423  helm list 
+  424  kubectl get ns 
+  425  kubectl create ns myspace
+  426  helm install mytest-nginx-2 azure-marketplace/nginx --namespace=myspace
+  427  kubectl get pods 
+  428  kubectl get pods -n myspace
+  429  helm list 
+  430  helm list --all-namespaces
+  431  helm unistall mytest-nginx --all-namespaces
+  432  helm uninstall mytest-nginx 
+  433  helm uninstall mytest-nginx-2
+  434  helm uninstall mytest-nginx-2 --namespace=myspace 
+  435  helm list --all-namespaces
+  436  ls
+  437  cd ..
+  438  ls
+  439  mkdir 15-Own-Helm-Chart
+  440  l
+  441  cd 15-Own-Helm-Chart/
+  442  ls
+  443  helm create mychart
+  444  ls
+  445  cd mychart/
+  446  ls
+  447  cat Chart.yaml 
+  448  ls
+  449  ls -ltr templates/
+  450  cat templates/service.yaml 
+  451  ls
+  452  vim values.yaml 
+  453  ls
+  454  cd ..
+  455  ls
+  456  helm install mywebapp ./mychart --dry-run 
+  457  helm install mywebapp ./mychart 
+  458  helm list 
+  459  kubectl get svc 
+  460  kubectl get pods 
+  461  ls
+  462  history > History.txt
