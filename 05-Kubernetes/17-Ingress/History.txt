@@ -1,0 +1,91 @@
+    1  ls
+    2  cat kubeinit.log 
+    3  mkdir -p $HOME/.kube
+    4  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    5  kubectl get nodes 
+    6  ls
+    7  kubectl token create --print-join-command 
+    8  kubectl token create --print-join-command
+    9  kubeadm token create --print-join-command
+   10  kubectl get nodes 
+   11  ls
+   12  vim kubeinit.log 
+   13  ls
+   14  cat kubeinit.log 
+   15  kubectl get nodes 
+   16  exit
+   17  ls
+   18  cd devcloud-dxc-30Mar2021/
+   19  ls
+   20  git pull 
+   21  ls
+   22  cd 05-Kubernetes/
+   23  ls
+   24  cd 17-Ingress/
+   25  ls
+   26  cat README.md 
+   27  ls
+   28  vim nginx-ingress-controller.yaml 
+   29  ls
+   30  cat ingress-rules.yaml 
+   31  ls
+   32  cat echoservice.yml 
+   33  ls
+   34  cat helloworld-v1.yml
+   35  cat helloworld-v2.yml
+   36  ls
+   37  cd ..
+   38  ls
+   39  kubectl apply -f 17-Ingress/
+   40  kubectl get pods 
+   41  kubectl get deploy 
+   42  kubectl delete deploy mywebapp-mychart
+   43  kubectl get deploy 
+   44  ls
+   45  kubectl get pods -n kube-system
+   46  kubectl get pods 
+   47  kubectl describe pod nginx-ingress-controller-g2vz2
+   48  kubectl logs nginx-ingress-controller-g2vz2
+   49  kubectl logs -f  nginx-ingress-controller-g2vz2
+   50  ls
+   51  kubectl describe pod nginx-ingress-controller-g2vz2
+   52  cat 17-Ingress/README.md 
+   53  kubectl create clusterrolebinding add-on-cluster-admin   --clusterrole=cluster-admin   --serviceaccount=kube-system:default
+   54  ubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
+   55  kubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
+   56  kubectl get pods 
+   57  kubectl describe pod nginx-ingress-controller-g2vz2
+   58  kubectl get pods 
+   59  ls
+   60  kubectl get svc 
+   61  kubectl delete svc mywebapp-mychart
+   62  ls
+   63  kubectl get svc 
+   64  kubectl get pods -o wide 
+   65  curl 192.168.77.143 
+   66  kubectl get rc 
+   67  kubectl expose rc nginx-ingress-controller --type=NodePort
+   68  kubectl get svc 
+   69  kubectl get pods -o wide 
+   70  curl 172.42.42.102:31097
+   71  curl 172.42.42.102:31097 -H 'Host: helloworld-v1.example.com'
+   72  curl 172.42.42.102:31097 -H 'Host: helloworld-v2.example.com'
+   73  ls
+   74  cat 17-Ingress/ingress-rules.yaml 
+   75  ls
+   76  cd 17-Ingress/
+   77  ls
+   78  history 
+   79  vim README.md 
+   80  ls
+   81  cd ..
+   82  ls
+   83  cd ..
+   84  ls
+   85  git add . ; git commit -m "17-Ingress"; git push 
+   86  ls
+   87  cd 05-Kubernetes/
+   88  ls
+   89  cd 17-Ingress/
+   90  ls
+   91  history > History.txt
