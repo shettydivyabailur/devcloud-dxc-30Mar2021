@@ -48,7 +48,21 @@ backend kubernetes-backend
     server kmaster1 172.16.16.101:6443 check fall 3 rise 2
     server kmaster2 172.16.16.102:6443 check fall 3 rise 2
 ```
+
+##### Note: Make sure /etc/hosts file is up to date for name resolution. 
+```
+cat >>/etc/hosts<<EOF
+172.16.16.100 loadbalancer.example.com  loadbalancer
+172.16.16.101 kmaster1.example.com kmaster1
+172.16.16.102 kmaster2.example.com kmaster2
+172.16.16.103 kmaster3.example.com kmaster3
+172.16.16.201 kworker1.example.com kworker1
+172.16.16.202 kworker1.example.com kworker1
+EOF
+```
+
 ##### Restart haproxy service
+
 ```
 systemctl restart haproxy
 ```
