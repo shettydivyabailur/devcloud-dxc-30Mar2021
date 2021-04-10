@@ -1,0 +1,148 @@
+    1  apt-get update 
+    2  mkdir download
+    3  cd download/
+    4  ls
+    5  wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-core-8.13.5-x64.bin
+    6  ls
+    7  ping 172.31.26.6
+    8  ping 172.31.26.64
+    9  telnet 172.31.26.64 3306 
+   10  ls
+   11  chmod a+x atlassian-jira-core-8.13.5-x64.bin 
+   12  ./atlassian-jira-core-8.13.5-x64.bin 
+   13  netstat -tulnp 
+   14  ls
+   15  wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.48.tar.gz
+   16  ls
+   17  tar -zxvf mysql-connector-java-5.1.48.tar.gz 
+   18  ls
+   19  cd mysql-connector-java-5.1.48/
+   20  ls
+   21  cd
+   22  cd /opt/atlassian/jira/
+   23  ls
+   24  cd webapps/
+   25  ls
+   26  cd ..
+   27  ls
+   28  cd atlassian-jira/
+   29  ls
+   30  cd ..
+   31  ls
+   32  cd bin/
+   33  ls
+   34  ./stop-jira.sh
+   35  ls
+   36  cd ..
+   37  ls
+   38  cd lib/
+   39  ls
+   40  cp -rf /root/download/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48.jar .
+   41  ll
+   42  cd ..
+   43  ls
+   44  cd bin/
+   45  ls
+   46  ./start-jira.sh 
+   47  ps -ef | grep -i jira 
+   48  netstat -tulnp 
+   49  cd 
+   50  ls
+   51  history 
+   52  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git
+   53  ls
+   54  cd devcloud-dxc-30Mar2021/06-Jira/
+   55  ls
+   56  mkdir JIRA 
+   57  ls
+   58  cd JIRA/
+   59  ls
+   60  history > jira_history.txt
+   61  ls
+   62  cd ..
+   63  ls
+   64  git add . ; git commit -m "06-Jira"; git push 
+   65  ls
+   66  echo  "Configuring Nginx S"
+   67  exit
+   68  sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+   69  sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+   70  vim /etc/nginx/snippets/ssl-params.conf
+   71  ls
+   72  cp -a /etc/nginx/sites-available/default{,.org}
+   73  ls
+   74  service nginx start 
+   75  netstat -tulnp 
+   76  vim /etc/nginx/sites-available/default
+   77  nginx -t 
+   78  service nginx restart
+   79  vim /etc/nginx/sites-available/default
+   80  nginx -t 
+   81  ls -ltr /etc/nginx/snippets/s
+   82  vi /etc/nginx/snippets/self-signed.conf
+   83  nginx -t 
+   84  service nginx restart 
+   85  vim /etc/nginx/sites-available/default
+   86  nginx -t 
+   87  service nginx restart 
+   88  netstat -tulnp 
+   89  curl -k localhost:443
+   90  vim /etc/nginx/sites-available/default
+   91  nginx -t 
+   92  netstat -tulnp 
+   93  service nginx restart 
+   94  netstat -tulnp 
+   95  service nginx restart 
+   96  vim /etc/nginx/sites-available/default
+   97  service nginx restart 
+   98  service nginx status 
+   99  ls
+  100  vim /etc/nginx/sites-available/default
+  101  ls
+  102  nginx -t 
+  103  service nginx restart 
+  104  ls
+  105  cd /opt/atlassian/jira/
+  106  ls
+  107  vim conf/server.xml 
+  108  ls
+  109  ./bin/stop-jira.sh 
+  110  ./bin/start-jira.sh 
+  111  vim /etc/hosts
+  112  ls
+  113  vim conf/server.xml 
+  114  ./bin/stop-jira.sh 
+  115  ./bin/start-jira.sh 
+  116  vim conf/server.xml 
+  117  ./bin/stop-jira.sh 
+  118  ./bin/start-jira.sh 
+  119  cd /var/atlassian/application-data/
+  120  ls
+  121  cd jira/
+  122  ls
+  123  cd export/
+  124  ls
+  125  cp -rf ../import/
+  126  cp -rf myfirstbackup.zip ../import/
+  127  s
+  128  ls
+  129  cd ..
+  130  ls
+  131  cd import/
+  132  ls
+  133  ll
+  134  chmod 775 myfirstbackup.zip
+  135  ll
+  136  ls
+  137  cd 
+  138  ls
+  139  cd devcloud-dxc-30Mar2021/
+  140  ls
+  141  cd 06-Jira/
+  142  ls
+  143  mkidr Nginx
+  144  mkdir Nginx
+  145  ls
+  146  cd Nginx/
+  147  ls
+  148  history > nginx_history.txt
