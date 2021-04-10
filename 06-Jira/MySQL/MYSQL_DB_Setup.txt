@@ -1,0 +1,28 @@
+    1  sl
+    2  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git
+    3  ls
+    4  history 
+    5  apt-get update 
+    6  apt-get install mysql-server mysql-clinet -y 
+    7  apt-get install mysql-server mysql-client -y 
+    8  ls
+    9  cp -a /etc/mysql/mysql.conf.d/mysqld.cnf{,.org} 
+   10  vi /etc/mysql/mysql.conf.d/mysqld.cnf
+   11  service mysql restart
+   12  service mysql status 
+   13  mysql -u root -p 
+   14  ls
+   15  netstat -tulnp 
+   16  ip addr 
+   17  vi /etc/mysql/mysql.conf.d/mysqld.cnf
+   18  service mysql restart
+   19  netstat -tulnp 
+   20  ls
+   21  cd devcloud-dxc-30Mar2021/
+   22  ls
+   23  mkidr 06-Jira
+   24  mkdir 06-Jira
+   25  ls
+   26  cd 06-Jira/
+   27  ls
+   28  history > MYSQL_DB_Setup.txt
