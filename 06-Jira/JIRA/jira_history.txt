@@ -1,0 +1,60 @@
+    1  apt-get update 
+    2  mkdir download
+    3  cd download/
+    4  ls
+    5  wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-core-8.13.5-x64.bin
+    6  ls
+    7  ping 172.31.26.6
+    8  ping 172.31.26.64
+    9  telnet 172.31.26.64 3306 
+   10  ls
+   11  chmod a+x atlassian-jira-core-8.13.5-x64.bin 
+   12  ./atlassian-jira-core-8.13.5-x64.bin 
+   13  netstat -tulnp 
+   14  ls
+   15  wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.48.tar.gz
+   16  ls
+   17  tar -zxvf mysql-connector-java-5.1.48.tar.gz 
+   18  ls
+   19  cd mysql-connector-java-5.1.48/
+   20  ls
+   21  cd
+   22  cd /opt/atlassian/jira/
+   23  ls
+   24  cd webapps/
+   25  ls
+   26  cd ..
+   27  ls
+   28  cd atlassian-jira/
+   29  ls
+   30  cd ..
+   31  ls
+   32  cd bin/
+   33  ls
+   34  ./stop-jira.sh
+   35  ls
+   36  cd ..
+   37  ls
+   38  cd lib/
+   39  ls
+   40  cp -rf /root/download/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48.jar .
+   41  ll
+   42  cd ..
+   43  ls
+   44  cd bin/
+   45  ls
+   46  ./start-jira.sh 
+   47  ps -ef | grep -i jira 
+   48  netstat -tulnp 
+   49  cd 
+   50  ls
+   51  history 
+   52  git clone https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git
+   53  ls
+   54  cd devcloud-dxc-30Mar2021/06-Jira/
+   55  ls
+   56  mkdir JIRA 
+   57  ls
+   58  cd JIRA/
+   59  ls
+   60  history > jira_history.txt
