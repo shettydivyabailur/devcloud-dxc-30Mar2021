@@ -5,14 +5,15 @@ nginx:
 
 
 mywebserver:
-  image: myapache:v2
+  image: myapache:v3
   ports:
     - '8091:80'
 
-mywebserver2:
-  image: myapache:v4
-  ports:
-    - '80'
+Mywebserver2:
+   image: myapache:v4
+   ports:
+     - '80'
 
 mywebserver3:
-  image: myapache:v3
+        image: myapache:v5
+       
