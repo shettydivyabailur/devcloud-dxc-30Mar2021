@@ -1,7 +1,7 @@
 node('master') {
 
 stage('Git CheckOut') {
-  git branch: 'main', url: 'https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git'
+  git branch: 'main', url: 'https://github.com/shettydivyabailur/devcloud-dxc-30Mar2021.git'
  }
 
 def Project_Path="02-App-Code/petclinic-code"
