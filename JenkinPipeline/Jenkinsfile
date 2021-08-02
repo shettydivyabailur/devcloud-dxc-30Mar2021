@@ -1,16 +1,10 @@
 node('master') {
-// Get Artifcatory Server Instance Details 
-   def server = Artifactory.server "01"
-   def buildInfo = Artifactory.newBuildInfo()
-
-// Petclinic Project Variable
-   def Project_Path="02-App-Code/petclinic-code"
-
-notify('Started')
 
 stage('Git CheckOut') {
   git branch: 'main', url: 'https://github.com/amitvashisttech/devcloud-dxc-30Mar2021.git'
  }
+
+def Project_Path="02-App-Code/petclinic-code"
 
 dir(Project_Path) {
 
@@ -30,22 +24,6 @@ stage('Package') {
   sh 'mvn package'
  }
 
-stage('Build Management') { 
-    def uploadSpec = """{
-     "files" : [
-        { 
-          "pattern": "**/*.war",
-          "target": "petclinic-snapshot"
-        }
-      ]
-   }"""
-   server.upload spec: uploadSpec
- }
-
-stage('Publish Build Info'){
-  server.publishBuildInfo buildInfo
- }
-
 stage('Archive Artifacts') { 
 archiveArtifacts artifacts: 'target/*.war', followSymlinks: false 
  }
@@ -55,20 +33,9 @@ junit 'target/surefire-reports/TEST-*.xml'
  }
 
 
-stage('Deployment - PreProd') {   
+stage('Deployment - PreProd1') {   
   sh 'sudo docker-compose up -d --build'
  }
 
 }
-notify('Completed')
-}
-
-
-def notify(status){
-    emailext(
-      to: "amitvashist7@outlook.com",
-      subject: "${status}: JOB '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", 
-      body: """<p>${status}: JOB '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-               <p> Check the Console Output at <a href='${env.BUILD_URL}'>${env.JOB_NAME}[${env.BUILD_NUMBER}]</a></p>""",      
-    )
 }
