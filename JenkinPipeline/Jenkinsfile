@@ -34,7 +34,7 @@ stage('Build Management') {
      "files" : [
         { 
           "pattern": "**/*.war",
-          "target": "petclinic-snapshot"
+          "target": "Petclinic-snapshot"
         }
       ]
    }"""
