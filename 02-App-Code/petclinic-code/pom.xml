@@ -292,13 +292,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
                 <configuration>
-                    <compilerArguments>
-                        <Xlint/>
-                    </compilerArguments>
-                    <verbose>true</verbose>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <showWarnings>true</showWarnings>
+                    <fork>true</fork>
+                <executable>C:\Program Files\Java\jdk1.8.0_292\bin\javac.exe
                 </configuration>
             </plugin>
             <plugin>
